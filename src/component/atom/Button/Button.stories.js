@@ -50,7 +50,8 @@ PrimaryLinkWithArrowIcon.args = {
     children: "Test",
     href: '',
     variant: "text",
-    endIconNeeded: "more"
+    endIconNeeded: "more",
+    isOpen: true
 }
 
 export const BigLogo = Template.bind({})
@@ -64,4 +65,13 @@ export const SmallLogo = Template.bind({})
 SmallLogo.args = {
     logoSize: "small",
     href: '#',
+}
+
+export const startIcon = Template.bind({})
+startIcon.args = {
+    color: 'primary',
+    children: "Test",
+    href: '',
+    variant: "text",
+    startIconNeeded: "Entrepreneurship"
 }

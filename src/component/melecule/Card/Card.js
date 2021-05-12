@@ -3,10 +3,10 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '../../atom/Button/Button'
+import ButtonItem from '../../atom/Button/Button'
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import Typography from '@material-ui/core/Typography'
-import img from '../../../images/1984OrwellBigBrotherImage_01.jpg'
+import img from '../../../images/download.png'
 import './Card.css'
 
 const BookCard = (props) => {
@@ -14,9 +14,9 @@ const BookCard = (props) => {
         <Card>
             <CardMedia
                 component="img"
-                alt="Startup Seed Funding for the Rest of Us"
+                alt={props.bookTitle}
                 image={img}
-                title="Startup Seed Funding for the Rest of Us"
+                title={props.bookTitle}
             />
             <CardContent>
                 <Typography gutterBottom variant="h6" color="primary" component="h2">
@@ -33,12 +33,12 @@ const BookCard = (props) => {
             </CardContent>
             <CardActions  onClick={(e) => props.onClick(e, props.id)}>
                 {props.isFinished ? 
-                    <Button size="medium" color="secondary" variant="contained" fullWidth="true">
+                    <ButtonItem size="medium" color="secondary" variant="contained" fullWidth="true">
                         Read Again
-                    </Button> : 
-                    <Button size="medium" color="primary" variant="contained" fullWidth="true">
+                    </ButtonItem> : 
+                    <ButtonItem size="medium" color="primary" variant="contained" fullWidth="true">
                         Mark as Finished
-                    </Button>
+                    </ButtonItem>
                 }
             </CardActions>
     </Card>

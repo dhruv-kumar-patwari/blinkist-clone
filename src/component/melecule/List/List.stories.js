@@ -1,12 +1,13 @@
 import React from 'react';
 import List from './List';
 
+
 export default {
     title: "Molecule/List",
     component: List,
 }
 
-const Template = args=>(<List {...args} />)
+const Template = args => (<List {...args} /> )
 
 
 export const NavBarElements = Template.bind({})
@@ -20,7 +21,8 @@ NavBarElements.args = {
 
 export const ExploreDropDowm = Template.bind({})
 ExploreDropDowm.args = {
-    listItems: ["Entrepenureship", "Science", "Economics", "Politics", "Health"],
+    listItems: ["Entrepreneurship", "Science", "Economics", "Politics", "Health", "Money"],
+    startIconNeeded: ["Entrepreneurship", "Science", "Economics", "Politics", "Health", "Money"],
     color: 'secondary',
     href: '#',
     variant: "text",

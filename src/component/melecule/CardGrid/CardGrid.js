@@ -1,5 +1,5 @@
 import React from 'react'
-import BookCard from '../../melecule/Card/Card'
+import BookCard from '../Card/Card'
 import Grid from '@material-ui/core/Grid';
 
 export const CardGrid = (props) => {

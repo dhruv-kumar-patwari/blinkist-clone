@@ -14,6 +14,7 @@ const FormInputField = (props) => {
                 size= 'large'
                 variant= 'outlined'
                 className="field"
+                fullWidth
                 {...rest}
             />
         </div>

@@ -10,8 +10,8 @@ const Template = args => (<BookCard {...args} />)
 
 export const CardWithDynamicInput = Template.bind({})
 CardWithDynamicInput.args = {
-    bookTitle: "Animal Farm",
-    bookAuthor: "Gorge Orwell",
-    bookDuration: "20",
-    isFinished: false
+    // bookTitle: "Animal Farm",
+    // bookAuthor: "Gorge Orwell",
+    // bookDuration: "20",
+    // isFinished: false
 }

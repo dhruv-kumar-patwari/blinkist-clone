@@ -1,5 +1,6 @@
-import React from 'react';
+import {React} from 'react';
 import FormInputField from './FormInputField'
+import SearchInputField from './SearchInputField'
 
 export default {
     title: "Atom/TextField",
@@ -19,15 +20,11 @@ PlainTextField.args = {
     labelText: 'Book Name'
 }
 
-// export const TextFieldWithIcon = Template.bind({})
-// TextFieldWithIcon.args = {
-//     placeholder: "TextField",
-//     InputProps: {
-//         endAdornment: (
-//         <InputAdornment position="start">
-//             <CloseIcon />
-//         </InputAdornment>
-//         ),
-//     },
-//     error: true,
-// }
+const SearchTemplate = args => (<div>
+                            <SearchInputField {...args} />
+                        </div>)
+
+export const TextFieldWithIcon = SearchTemplate.bind({})
+TextFieldWithIcon.args = {
+    placeholder: "Search by Author or Title",
+}

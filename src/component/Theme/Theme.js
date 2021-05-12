@@ -130,7 +130,7 @@ export const theme = createMuiTheme({
             },
             textColorPrimary: {
                 textTransform: "none",
-                minWidth: "20%",
+                minWidth: "30%",
                 '&$selected': {
                     color: tertiaryColor,
                 },
