@@ -33,7 +33,7 @@ combined.args = {
                 "Politics", "Health", "Money", "Marketing & Sales", 
                 "Personal Development", "History", 
                 "Communication", "Motivation", "Psychology", "Technology"],
-    menuItems : ["My Library", "Add Book"],
-    linkTo : ["/", "/addBook"],
+    menuItems : ["My Library"],
+    linkTo : ["/"],
     toggleSearchBar: false
 }

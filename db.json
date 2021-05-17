@@ -2,19 +2,25 @@
   "books": [
     {
       "id": 1,
-      "bookTitle": "Beyond Entrepreneurship 2.0",
+      "bookTitle": "Beyond Entrepreneurship",
       "bookAuthor": "Jim Collins and Bill Lazier",
       "bookDuration": "19",
-      "isFinished": true,
-      "category": "Entrepreneurship"
+      "isFinished": false,
+      "category": {
+        "id": 1,
+        "name": "Entrepreneurship"
+      }
     },
     {
       "id": 2,
       "bookTitle": "Steve Jobs",
       "bookAuthor": "Walter Isaacson",
       "bookDuration": "19",
-      "isFinished": true,
-      "category": "Entrepreneurship"
+      "isFinished": false,
+      "category": {
+        "id": 1,
+        "name": "Entrepreneurship"
+      }
     },
     {
       "id": 3,
@@ -22,7 +28,10 @@
       "bookAuthor": "Noreena Hertz",
       "bookDuration": "15",
       "isFinished": true,
-      "category": "Politics"
+      "category": {
+        "id": 4,
+        "name": "Politics"
+      }
     },
     {
       "id": 4,
@@ -30,7 +39,10 @@
       "bookAuthor": "Doris Kearns Goodwin",
       "bookDuration": "19",
       "isFinished": true,
-      "category": "Politics"
+      "category": {
+        "id": 4,
+        "name": "Politics"
+      }
     },
     {
       "id": 5,
@@ -38,7 +50,10 @@
       "bookAuthor": "Jack Phillips",
       "bookDuration": "12",
       "isFinished": true,
-      "category": "Marketing"
+      "category": {
+        "id": 10,
+        "name": "Money"
+      }
     },
     {
       "id": 6,
@@ -46,7 +61,10 @@
       "bookAuthor": "Jeb Blount",
       "bookDuration": "13",
       "isFinished": true,
-      "category": "Marketing"
+      "category": {
+        "id": 10,
+        "name": "Money"
+      }
     },
     {
       "id": 7,
@@ -54,7 +72,10 @@
       "bookAuthor": "Guido Tonelli",
       "bookDuration": "12",
       "isFinished": true,
-      "category": "Science"
+      "category": {
+        "id": 2,
+        "name": "Science"
+      }
     },
     {
       "id": 8,
@@ -62,13 +83,19 @@
       "bookAuthor": "Dilip Jeste, MD, with Scott LaFee",
       "bookDuration": "12",
       "isFinished": true,
-      "category": "Science"
+      "category": {
+        "id": 2,
+        "name": "Science"
+      }
     },
     {
       "bookTitle": "Test",
       "bookAuthor": "Dhruv",
       "bookDuration": "20",
-      "category": "Test",
+      "category": {
+        "id": 8,
+        "name": "Test"
+      },
       "isFinished": false,
       "id": 9
     },
@@ -76,31 +103,43 @@
       "bookTitle": "Test 2",
       "bookAuthor": "Dhruv",
       "bookDuration": "100",
-      "category": "Test",
-      "isFinished": true,
+      "category": {
+        "id": 8,
+        "name": "Test"
+      },
+      "isFinished": false,
       "id": 10
     },
     {
       "bookTitle": "Test 3",
       "bookAuthor": "Tilak",
       "bookDuration": "2000",
-      "category": "Test",
-      "isFinished": false,
+      "category": {
+        "id": 8,
+        "name": "Test"
+      },
+      "isFinished": true,
       "id": 11
     },
     {
       "bookTitle": "Test 4",
       "bookAuthor": "Nishant",
       "bookDuration": "200000",
-      "category": "Test",
-      "isFinished": false,
+      "category": {
+        "id": 8,
+        "name": "Test"
+      },
+      "isFinished": true,
       "id": 12
     },
     {
       "bookTitle": "Test 6",
       "bookAuthor": "Random",
       "bookDuration": "3000",
-      "category": "Test",
+      "category": {
+        "id": 8,
+        "name": "Test"
+      },
       "isFinished": true,
       "id": 13
     },
@@ -108,15 +147,21 @@
       "bookTitle": "The Psychology of Money",
       "bookAuthor": "Morgan Housel",
       "bookDuration": "12",
-      "category": "Finance",
-      "isFinished": false,
+      "category": {
+        "id": 10,
+        "name": "Money"
+      },
+      "isFinished": true,
       "id": 14
     },
     {
       "bookTitle": "Test 200",
       "bookAuthor": "Dhruv",
       "bookDuration": "20",
-      "category": "Test",
+      "category": {
+        "id": 8,
+        "name": "Test"
+      },
       "isFinished": true,
       "id": 15
     },
@@ -124,17 +169,109 @@
       "bookTitle": "Test 3000",
       "bookAuthor": "Iron Man",
       "bookDuration": "3000",
-      "category": "Test",
-      "isFinished": false,
+      "category": {
+        "id": 8,
+        "name": "Test"
+      },
+      "isFinished": true,
       "id": 16
     },
     {
       "bookTitle": "Test 500",
       "bookAuthor": "Dhruv",
       "bookDuration": "89",
-      "category": "Test",
-      "isFinished": false,
+      "category": {
+        "id": 8,
+        "name": "Test"
+      },
+      "isFinished": true,
       "id": 17
+    },
+    {
+      "bookTitle": "Meditations",
+      "bookAuthor": "Marcus Arelius",
+      "bookDuration": "20",
+      "category": {
+        "id": 9,
+        "name": "Philosophy"
+      },
+      "isFinished": true,
+      "id": 18
+    },
+    {
+      "bookTitle": "Test 300067",
+      "bookAuthor": "Dhruv",
+      "bookDuration": "12",
+      "category": {
+        "id": 3,
+        "name": "Economics"
+      },
+      "isFinished": true,
+      "id": 19
+    },
+    {
+      "bookTitle": "Test 50067",
+      "bookAuthor": "Dhruv",
+      "bookDuration": "34",
+      "category": {
+        "id": 5,
+        "name": "History"
+      },
+      "isFinished": false,
+      "id": 20
+    },
+    {
+      "bookTitle": "Check",
+      "bookAuthor": "Chikoo",
+      "bookDuration": "23",
+      "category": {
+        "id": 6,
+        "name": "Marketing & Sales"
+      },
+      "isFinished": false,
+      "id": 21
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Entrepreneurship"
+    },
+    {
+      "id": 2,
+      "name": "Science"
+    },
+    {
+      "id": 3,
+      "name": "Economics"
+    },
+    {
+      "id": 4,
+      "name": "Politics"
+    },
+    {
+      "id": 5,
+      "name": "History"
+    },
+    {
+      "id": 6,
+      "name": "Marketing & Sales"
+    },
+    {
+      "id": 7,
+      "name": "Motivation"
+    },
+    {
+      "id": 8,
+      "name": "Test"
+    },
+    {
+      "id": 9,
+      "name": "Philosophy"
+    },
+    {
+      "id": 10,
+      "name": "Money"
     }
   ]
 }

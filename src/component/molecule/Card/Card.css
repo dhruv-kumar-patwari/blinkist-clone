@@ -1,0 +1,8 @@
+
+.timeSection {
+    display:flex;
+}
+.timeText {
+    margin-top: 0.150rem;
+    margin-left: 0.5rem;
+}

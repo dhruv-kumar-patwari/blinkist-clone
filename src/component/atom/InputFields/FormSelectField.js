@@ -1,12 +1,13 @@
 import React from 'react'
 import { Typography } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField'
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 import NoSsr from '@material-ui/core/NoSsr'
 import './Form.css'
 import styled from 'styled-components';
 import {secondaryColor, tertiaryColor} from '../../Theme/Theme'
 
-const StyledTextField = styled(TextField)`
+const StyledSelectField = styled(Select)`
     .MuiOutlinedInput-root {
         &:hover fieldset {
             border-color: ${secondaryColor};
@@ -17,24 +18,25 @@ const StyledTextField = styled(TextField)`
     }
 `;
 
-const FormInputField = (props) => {
-    var { labelText , ...rest} = props
+const FormSelectField = (props) => {
+    var { labelText, menuItemsList , ...rest} = props
     return (
         <div>
             <Typography variant="h6" color="secondary" gutterBottom>
                 {labelText}
             </Typography>
             <NoSsr>
-                <StyledTextField
+                <StyledSelectField
                     size= 'medium'
                     variant= 'outlined'
-                    className="field"
                     fullWidth
                     {...rest}
-                >{props.children}</StyledTextField>
+                >
+                    {menuItemsList.map((listItem) => (<MenuItem value={listItem.id}>{listItem.name}</MenuItem>))}
+                </StyledSelectField>
             </NoSsr>
         </div>
     )
 }
 
-export default FormInputField
+export default FormSelectField

@@ -3,10 +3,14 @@ import ButtonItem from '../../atom/Button/Button';
 import SearchIcon from '@material-ui/icons/Search';
 import SearchInputField from '../../atom/InputFields/SearchInputField'
 import './NavBar.css'
+import { useAuth0 } from '@auth0/auth0-react';
+import Profile from "../Profile/Profile"
+
 
 const NavBarWithSearch = (props) => {
     const [width, setWidth] = useState(window.innerWidth);
     const breakpoint = 620;
+    const { loginWithRedirect, isAuthenticated } = useAuth0();
 
     useEffect(() => {
         const handleWindowResize = () => setWidth(window.innerWidth);
@@ -16,21 +20,8 @@ const NavBarWithSearch = (props) => {
 
     const handleSearch = (e) => {
         props.setSearchTerm(e.target.value)
-        if(props.searchTerm !== ""){
-            const filteredBooks = props.bookList.filter((book) => {
-                return Object.values(book)
-                                .join(" ")
-                                .toLowerCase()
-                                .includes(props.searchTerm
-                                .toLowerCase())
-            })
-
-            props.setSearchResult(filteredBooks)
-        }
-        else{
-            props.setSearchResult(props.bookList)
-        }
     }
+    
     return (
         <div className="NavBar">
             <div class="left">
@@ -44,7 +35,10 @@ const NavBarWithSearch = (props) => {
                     onChange = {handleSearch}
                 />
             </div>
-            <ButtonItem children="Logout" variant="contained" className="logout" color="primary" />
+            {!isAuthenticated ? 
+                <ButtonItem children="Login" variant="contained" className="profileButton" color="primary" onClick={() => loginWithRedirect()} />
+                : <Profile />
+            }
         </div>
     )
 }

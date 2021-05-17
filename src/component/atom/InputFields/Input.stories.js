@@ -1,6 +1,7 @@
 import {React} from 'react';
 import FormInputField from './FormInputField'
 import SearchInputField from './SearchInputField'
+import FormSelectField from './FormSelectField'
 
 export default {
     title: "Atom/TextField",
@@ -27,4 +28,33 @@ const SearchTemplate = args => (<div>
 export const TextFieldWithIcon = SearchTemplate.bind({})
 TextFieldWithIcon.args = {
     placeholder: "Search by Author or Title",
+}
+
+const SelectTemplate = args => (<div>
+                            <FormSelectField {...args} />
+                        </div>)
+
+export const SelectField = SelectTemplate.bind({})
+SelectField.args = {
+    id: "standard-number",
+    size: 'medium',
+    labelText: 'Book Name',
+    menuItemsList : [
+        {
+            id: 1,
+            name: "Entrepreneurship"
+        },
+        {
+            id: 2,
+            name: "Science"
+        },
+        {
+            id: 3,
+            name: "Economics"
+        },
+        {
+            id: 4,
+            name: "Politics"
+        },
+    ]
 }

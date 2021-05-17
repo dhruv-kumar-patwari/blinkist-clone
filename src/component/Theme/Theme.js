@@ -1,11 +1,12 @@
 import 'typeface-roboto';
 import React from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
+import Raleway from '../../assets/Raleway-VariableFont_wght.ttf'
 
-const primaryColor = "#032356";
-const secondaryColor = "#6d787e";
-const tertiaryColor = "#68DF81";
-const fourthColor = "#0552be";
+export const primaryColor = "#032356";
+export const secondaryColor = "#6d787e";
+export const tertiaryColor = "#68DF81";
+export const fourthColor = "#0552be";
 
 export const theme = createMuiTheme({
     palette: {
@@ -18,38 +19,56 @@ export const theme = createMuiTheme({
     },
     typography: {
         overflowWrap: "break-word",
+        fontFamily: 'Raleway',
+        src: `
+            local('Raleway'),
+            local('Raleway-Regular'),
+            url(${Raleway}) format('ttf')
+        `,
+        unicodeRange:
+            'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF',
         h6: {
-        fontSize: "1.125rem",
-        fontWeight: "700",
-        lineHeight: "1.33",
-        marginBottom: "0.5rem",
+            fontSize: "1.125rem",
+            fontWeight: "700",
+            lineHeight: "1.33",
+            marginBottom: "0.5rem",
         },
         body1: {
-        fontWeight: "500",
+            fontWeight: "500",
         },
         body2: {
-            fontWeight: "500",
+            fontSize: "0.875rem",
+            fontWeight: 400,
+            lineHeight: 1.57,
+            color: "#3A4649",
         },
         h5: {
             color: fourthColor,
             fontWeight: "700"
+        },
+        h4: {
+            fontSize: "2.2rem",
+            lineHeight: "2.8125rem",
+            color: "#03314B",
+            fontWeight: 600,
+            marginBottom: "5rem"
         }
     },
     overrides: {
         MuiLink:{
-        underlineHover: {
-            '&:hover': { 
-            textDecorationColor: tertiaryColor,
-            textUnderlineOffset: '0.3em',
-            textDecorationThickness: '2px'
+            underlineHover: {
+                '&:hover': { 
+                textDecorationColor: tertiaryColor,
+                textUnderlineOffset: '0.3em',
+                textDecorationThickness: '2px'
+                },
             },
-        },
-        root: {
-            '&:hover': { 
-            color: fourthColor,
-            },
-            fontWeight: "500"
-        }
+            root: {
+                '&:hover': { 
+                color: fourthColor,
+                },
+                fontWeight: "500"
+            }
         },
         MuiButtonBase: {
             root: {
@@ -130,7 +149,7 @@ export const theme = createMuiTheme({
             },
             textColorPrimary: {
                 textTransform: "none",
-                minWidth: "30%",
+                minWidth: "32%",
                 '&$selected': {
                     color: tertiaryColor,
                 },
@@ -141,6 +160,8 @@ export const theme = createMuiTheme({
             },
             wrapper: {
                 alignItems: "baseline",
+                fontWeight: "bold",
+                paddingBottom: "0.5rem"
             }
         
         },
@@ -154,9 +175,6 @@ export const theme = createMuiTheme({
             root: {
                 maxWidth: "100%",
                 minHeight: "25rem",
-            },
-            media: {
-                height: "18rem",
             },
         },
         MuiPopover: {
@@ -179,6 +197,39 @@ export const theme = createMuiTheme({
             root: {
                 fontSize: "1.125rem",
             }
+        },
+        MuiMenu: {
+            paper: {
+                backgroundColor: "#F1F6F4"
+            }
+        },
+        MuiPaper: {
+            elevation8: {
+                boxShadow: 0,
+            },
+            elevation1: {
+                boxShadow: 0,
+            }
+        },
+        MuiCardContent: {
+            root: {
+                border: "1px solid #BAC8CE",
+                borderTop: 0,
+            }
+        },
+        MuiCardActions: {
+            root: {
+                border: "1px solid #BAC8CE",
+                borderTop: 0,
+                borderBottomRightRadius: "0.25rem",
+                borderBottomLeftRadius: "0.25rem",
+            }
+        },
+        MuiOutlinedInput: {
+            notchedOutline: {
+                borderColor: secondaryColor,
+                borderWidth: "2px",
+            },
         }
     },
     props: {

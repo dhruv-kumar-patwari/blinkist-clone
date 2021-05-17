@@ -1,5 +1,5 @@
 import React from 'react'
-import CardGrid from '../../melecule/CardGrid/CardGrid'
+import CardGrid from '../../molecule/CardGrid/CardGrid'
 import TabsList from '../../atom/Tabs/Tabs'
 import TabPanel from '../../atom/TabPanel/TabPanel'
 import { useEffect } from 'react';

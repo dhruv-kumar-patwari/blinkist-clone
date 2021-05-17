@@ -4,8 +4,8 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5rem;
-    margin-top: 2rem;
+    margin-bottom: 4rem;
+    margin-top: 1rem;
 }
 
 .left {
@@ -13,6 +13,6 @@
     margin-right: auto;
 }
 
-.logout {
+.profileButton {
     margin-left:auto;
 }

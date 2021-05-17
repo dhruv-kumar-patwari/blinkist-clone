@@ -1,11 +1,12 @@
 import IntegratedNavBar from './component/Organism/NavBar/IntegratedNavBar'
-import { Container } from '@material-ui/core'
+import { Container, Typography } from '@material-ui/core'
 import CardsInTabs from './component/Organism/CardsInTabs/CardsInTabs';
 import AddBookForm from './component/Organism/Form/Form';
 import { React, useState, useEffect } from 'react';
-import CardGrid from './component/melecule/CardGrid/CardGrid';
+import CardGrid from './component/molecule/CardGrid/CardGrid';
 import { BrowserRouter as Router, 
     Switch, Route, Link} from "react-router-dom"
+import { SearchTwoTone } from '@material-ui/icons';
 
 const isFinished = (x) => {
     return x.isFinished
@@ -18,8 +19,11 @@ const isUnFinished = (x) => {
 
 function App() {
   const [bookList, setBookList] = useState([])
+  const [categories, setCategories] = useState([])
   const [searchResult, setSearchResult] = useState([])
   const [searchTerm, setSearchTerm] = useState("");
+  const [filteredBookList, setFilteredBookList] = useState([])
+  const [filterTerm, setFilterTerm] = useState("");
 
   const [unFinished, setUnFinished] = useState(
       bookList.filter(isUnFinished)
@@ -33,19 +37,30 @@ function App() {
       const getBooks = async () => {
           const booksFromServer =  await fetchBooks()
           setBookList(booksFromServer)
-      } 
+      }
+      
+      const getCategories = async () => {
+          const categoriesFromServer =  await fetchCategories()
+          setCategories(categoriesFromServer)
+      }
 
       getBooks()
+      getCategories()
   }, []);
 
   useEffect(() => {
       setUnFinished(bookList.filter(isUnFinished))
       setFinished(bookList.filter(isFinished))
-      return <CardsInTabs />
   }, [bookList]);
 
   const fetchBooks = async () => {
       const response = await fetch('http://localhost:5000/books')
+      const data = await response.json()
+      return data
+  }
+
+  const fetchCategories = async () => {
+      const response = await fetch('http://localhost:5000/category')
       const data = await response.json()
       return data
   }
@@ -55,6 +70,11 @@ function App() {
       const data = await res.json()
 
       return data
+  }
+  const fetchCategory = async (id) => {
+      const res = await fetch(`http://localhost:5000/category/${id}`)
+      const data = await res.json()
+      return data.name
   }
 
   const changeReadStatus = async (e, data) => {
@@ -72,45 +92,75 @@ function App() {
 
       const updatedData = await res.json()
 
+      const bookStatusUpdate = (book) => {
+        return book.id === data
+        ? {...book, isFinished : updatedData.isFinished} 
+        : book 
+      }
+      
       setBookList(
-          bookList.map((book) => 
-              book.id === data
-              ? {...book, isFinished : updatedData.isFinished} 
-              : book 
-          ));
+          bookList.map((book) => bookStatusUpdate(book)))
+      
+      setFilteredBookList(
+      filteredBookList.map((book) => bookStatusUpdate(book)))
+
+      setSearchResult(
+      searchResult.map((book) => bookStatusUpdate(book)))
+  }
+
+  useEffect(() => {
+      console.log(filteredBookList)
+  }, [filteredBookList]);
+
+  const findBooksByCategory = (data) => {
+    const filteredList = bookList.filter((book) => (book.category.id === data))
+    setFilteredBookList(filteredList)
   }
 
   return (
     <Router>
+    <Container maxWidth="md" style={{maxWidth: "1024px"}}>
+      <IntegratedNavBar listItems= {categories}
+                    menuItems = {["My Library"]}
+                    searchResult = {searchResult}
+                    setSearchResult = {setSearchResult}
+                    searchTerm = {searchTerm}
+                    setSearchTerm = {setSearchTerm}
+                    setBookList={setBookList} 
+                    bookList = {bookList}
+                    linkTo={["/"]}
+                    fetchCategory={fetchCategory}
+                    findBooksByCategory={findBooksByCategory}
+                    setFilterTerm={setFilterTerm}
+                    />
+    </Container>
       <Container maxWidth="md">
-        <IntegratedNavBar listItems= {["Entrepreneurship", "Science", "Economics",
-                  "Politics", "Health", "Money", "Marketing & Sales",
-                  "Personal Development", "History",
-                  "Communication", "Motivation", "Psychology", "Technology"]}
-                  menuItems = {["My Library", "Add Book"]}
-                  searchResult = {searchResult}
-                  setSearchResult = {setSearchResult}
-                  searchTerm = {searchTerm}
-                  setSearchTerm = {setSearchTerm}
-                  bookList = {bookList}
-                  linkTo={["/", "/addBook"]}
-                  />
         <Switch>
           <Route exact path="/">
-            {searchTerm ? <CardGrid bookList={searchResult} onClick={changeReadStatus} /> :
-              <CardsInTabs
-                bookList = {bookList}
-                setBookList={setBookList}
-                fetchBook= {fetchBook}
-                changeReadStatus = {changeReadStatus}
-                finished = {finished}
-                unFinished = {unFinished}
-              />
+            {searchTerm ? <>
+                <Typography variant="h4"><strong>{searchResult.length > 0 ? `All results for "${searchTerm}"` : `Nothing found for "${searchTerm}"`}</strong></Typography> 
+                <CardGrid bookList={searchResult} onClick={changeReadStatus} /></> :
+                (filterTerm ? 
+                <>
+                  <Typography variant="h4"><strong>{filterTerm}</strong></Typography> 
+                  <CardGrid bookList={filteredBookList} onClick={changeReadStatus} />
+                </> : 
+                <>
+                <Typography variant="h4"><strong>My Library</strong></Typography>
+                  <CardsInTabs
+                    bookList = {bookList}
+                    setBookList={setBookList}
+                    fetchBook= {fetchBook}
+                    changeReadStatus = {changeReadStatus}
+                    finished = {finished}
+                    unFinished = {unFinished}
+                    style={{background: "rgba(58,70,73,.7)"}}
+                  />
+              </>)
+              
             }
           </Route>
           <Route exact path="/addBook">
-          {searchTerm ? <CardGrid bookList={searchResult} onClick={changeReadStatus} /> :
-            <AddBookForm setBookList={setBookList} bookList = {bookList} />}
           </Route>
         </Switch>
       </Container>

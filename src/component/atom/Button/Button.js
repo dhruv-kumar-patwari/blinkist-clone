@@ -35,20 +35,16 @@ const icons = {
 
 
 const ButtonItem = (props) => {
-    return (props.startIconNeeded?
-                <Button startIcon= {icons[props.startIconNeeded].src} {...props} >
+    return (props.endIconNeeded? 
+                <Button endIcon = {props.isOpen ? icons.open.src : icons.close.src} {...props} >
                     {props.children}
                 </Button> : 
-                (props.endIconNeeded? 
-                    <Button endIcon = {props.isOpen ? icons.open.src : icons.close.src} {...props} >
-                        {props.children}
-                    </Button> : 
-                    <Button {...props} >
-                        {props.logoSize === "big" ? 
-                        <img style={{display: 'block', minWidth: "9rem"}} src={big} alt="logo" /> : 
-                        (props.logoSize === "small" ? 
-                        <img src={small} alt="logo" /> : props.children)}
-                    </Button>)
+                <Button {...props} style={{justifyContent:"center"}}>
+                    {props.logoSize === "big" ? 
+                    <img style={{display: 'block', minWidth: "9rem"}} src={big} alt="logo" /> : 
+                    (props.logoSize === "small" ? 
+                    <img src={small} alt="logo" /> : props.children)}
+                </Button>
     )            
 }
 

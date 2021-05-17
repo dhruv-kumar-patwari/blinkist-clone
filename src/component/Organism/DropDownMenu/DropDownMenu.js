@@ -20,6 +20,9 @@ const icons = {
     "Science":{
         src: <FontAwesomeIcon icon={faFlask} />
     },
+    "Test":{
+        src: <FontAwesomeIcon icon={faFlask} />
+    },
     "Economics":{
         src: <FontAwesomeIcon icon={faRupeeSign} />
     },
@@ -53,6 +56,9 @@ const icons = {
     "Technology":{
         src: <FontAwesomeIcon icon={faMicrochip} />
     },
+    "Philosophy":{
+        src: <FontAwesomeIcon icon={faBrain} />
+    }
 }
 
 
@@ -64,6 +70,12 @@ const DropDownMenu = (props) => {
     };
 
     const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const handleSearch = (listItem) => {
+        props.findBooksByCategory(listItem.id)
+        props.setFilterTerm(listItem.name)
         setAnchorEl(null);
     };
 
@@ -92,18 +104,17 @@ const DropDownMenu = (props) => {
                         {listItems.map((listItem) => (
                             <Grid item xs={12} sm={6} md={4}>
                                 <MenuItem
-                                    onClick={handleClose}
-                                    startIconNeeded={listItem}
+                                    onClick={() => handleSearch(listItem)}
                                     color= 'secondary'
                                     variant= "text"
                                     size= 'large'
                                     style={{paddingBottom: "10px"}}
                                     {...others}>
                                         <ListItemIcon>
-                                            {icons[listItem].src}
+                                            {icons[listItem.name].src}
                                         </ListItemIcon>
                                         <Typography variant="h6">
-                                            {listItem}
+                                            {listItem.name}
                                         </Typography>
                                     </MenuItem>
                             </Grid>
