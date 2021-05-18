@@ -8,143 +8,78 @@ export default {
 
 const Template = args => (<CardsInTabs {...args} />)
 
+const books = [
+        {
+            bookTitle: "Animal Farm",
+            bookAuthor: "Gorge Orwell",
+            bookDuration: "20",
+            isFinished: false
+        },
+        {
+            bookTitle: "Animal Farm",
+            bookAuthor: "Gorge Orwell",
+            bookDuration: "20",
+            isFinished: false
+        },
+        {
+            bookTitle: "Animal Farm",
+            bookAuthor: "Gorge Orwell",
+            bookDuration: "20",
+            isFinished: false
+        },
+        {
+            bookTitle: "Animal Farm",
+            bookAuthor: "Gorge Orwell",
+            bookDuration: "20",
+            isFinished: false
+        },
+        {
+            bookTitle: "Animal Farm",
+            bookAuthor: "Gorge Orwell",
+            bookDuration: "20",
+            isFinished: false
+        },
+        {
+            bookTitle: "Animal Farm",
+            bookAuthor: "Gorge Orwell",
+            bookDuration: "20",
+            isFinished: false
+        },
+        {
+            bookTitle: "Animal Farm",
+            bookAuthor: "Gorge Orwell",
+            bookDuration: "20",
+            isFinished: false
+        },
+        {
+            bookTitle: "Animal Farm",
+            bookAuthor: "Gorge Orwell",
+            bookDuration: "20",
+            isFinished: false
+        },
+        {
+            bookTitle: "Animal Farm",
+            bookAuthor: "Gorge Orwell",
+            bookDuration: "20",
+            isFinished: false
+        },
+        {
+            bookTitle: "Animal Farm",
+            bookAuthor: "Gorge Orwell",
+            bookDuration: "20",
+            isFinished: false
+        },
+        {
+            bookTitle: "1984",
+            bookAuthor: "Gorge Orwell",
+            bookDuration: "20",
+            isFinished: false
+        },
+    ]
+
 export const Default = Template.bind({})
 Default.args = {
-    unFinished: [
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "1984",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-    ],
-    finished: [
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "1984",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-    ],
+    unFinished: books,
+    finished: books,
     currentTab: "0"
 }

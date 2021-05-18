@@ -14,9 +14,7 @@ const test = () => {
 
 const Template = args => (<Navbar {...args} />)
 
-export const Default = Template.bind({})
-Default.args = {
-    listItems: [{
+const dropDownText = [{
       "id": 1,
       "name": "Entrepreneurship"
     },
@@ -39,7 +37,11 @@ Default.args = {
     {
       "id": 6,
       "name": "Marketing & Sales"
-    }],
+    }]
+
+export const Default = Template.bind({})
+Default.args = {
+    listItems: dropDownText,
     linkTo : ["/"],
     menuItems : ["My Library"],
     etSearchResult: test,
@@ -56,30 +58,7 @@ const IntegratedTemplate = args => (<IntegratedNavBar {...args} />)
 
 export const combined = IntegratedTemplate.bind({})
 combined.args = {
-    listItems: [{
-      "id": 1,
-      "name": "Entrepreneurship"
-    },
-    {
-      "id": 2,
-      "name": "Science"
-    },
-    {
-      "id": 3,
-      "name": "Economics"
-    },
-    {
-      "id": 4,
-      "name": "Politics"
-    },
-    {
-      "id": 5,
-      "name": "History"
-    },
-    {
-      "id": 6,
-      "name": "Marketing & Sales"
-    }],
+    listItems: dropDownText,
     menuItems : ["My Library"],
     linkTo : ["/"],
     toggleSearchBar: false,
