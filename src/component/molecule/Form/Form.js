@@ -1,6 +1,6 @@
 import React from 'react'
 import FormInputField from '../../atom/InputFields/FormInputField';
-import ButtonItem from '../../atom/Button/Button'
+import ButtonItem from '../Button/Button'
 
 const Form = () => {
     return (

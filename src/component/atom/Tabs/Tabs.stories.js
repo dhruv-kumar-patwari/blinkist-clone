@@ -14,4 +14,5 @@ const Template = args=>(<TabsList {...args} />)
 export const RecentReadList = Template.bind({})
 RecentReadList.args = {
     children: ["Currently Reading", "Finished"],
+    value:0
 }

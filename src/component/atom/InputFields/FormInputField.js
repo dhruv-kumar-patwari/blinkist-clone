@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField'
 import NoSsr from '@material-ui/core/NoSsr'
 import './Form.css'
 import styled from 'styled-components';
-import {secondaryColor, tertiaryColor} from '../../Theme/Theme'
+import {secondaryColor, tertiaryColor} from '../../../Theme/Theme'
 
 const StyledTextField = styled(TextField)`
     .MuiOutlinedInput-root {

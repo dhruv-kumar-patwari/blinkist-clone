@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonItem from '../../atom/Button/Button'
+import ButtonItem from '../Button/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 
 const List = (props) => {

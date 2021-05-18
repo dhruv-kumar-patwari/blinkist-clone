@@ -2,7 +2,7 @@ import React from 'react';
 import ButtonItem from './Button';
 
 export default {
-    title: "Atom/Button",
+    title: "Molecule/Button",
     component: ButtonItem
 }
 

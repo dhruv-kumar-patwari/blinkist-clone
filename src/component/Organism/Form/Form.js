@@ -1,10 +1,11 @@
-import { React, useState } from 'react'
+import { React } from 'react'
 import FormInputField from '../../atom/InputFields/FormInputField';
 import FormSelectField from '../../atom/InputFields/FormSelectField';
 
 
 
 const AddBookForm = (props) => {
+
     const handleChange = async (e) => {
         const categoryName = await props.fetchCategory(e.target.value)
         props.setCategory({
@@ -12,6 +13,7 @@ const AddBookForm = (props) => {
             name: categoryName
         })
     }
+    
     return (
         <div>
             <div>

@@ -7,7 +7,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import InstagramIcon from '@material-ui/icons/Instagram';
 
 export default {
-    title: "Atom/IconButton",
+    title: "Molecule/IconButton",
     component: IconButton
 }
 

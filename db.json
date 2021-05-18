@@ -1,59 +1,28 @@
 {
   "books": [
     {
-      "id": 1,
-      "bookTitle": "Beyond Entrepreneurship",
-      "bookAuthor": "Jim Collins and Bill Lazier",
-      "bookDuration": "19",
-      "isFinished": false,
-      "category": {
-        "id": 1,
-        "name": "Entrepreneurship"
-      }
-    },
-    {
-      "id": 2,
-      "bookTitle": "Steve Jobs",
-      "bookAuthor": "Walter Isaacson",
-      "bookDuration": "19",
-      "isFinished": false,
-      "category": {
-        "id": 1,
-        "name": "Entrepreneurship"
-      }
-    },
-    {
-      "id": 3,
-      "bookTitle": "The Lonely Century",
-      "bookAuthor": "Noreena Hertz",
-      "bookDuration": "15",
-      "isFinished": true,
-      "category": {
-        "id": 4,
-        "name": "Politics"
-      }
-    },
-    {
       "id": 4,
       "bookTitle": "The Bully Pulpit",
       "bookAuthor": "Doris Kearns Goodwin",
       "bookDuration": "19",
-      "isFinished": true,
+      "isFinished": false,
       "category": {
         "id": 4,
         "name": "Politics"
-      }
+      },
+      "img": "https://images.blinkist.com/images/books/608aa9b16cee070007228a70/1_1/640.jpg"
     },
     {
       "id": 5,
       "bookTitle": "ROI in Marketing",
       "bookAuthor": "Jack Phillips",
       "bookDuration": "12",
-      "isFinished": true,
+      "isFinished": false,
       "category": {
         "id": 10,
         "name": "Money"
-      }
+      },
+      "img": "https://images.blinkist.com/images/books/6014114b6cee070008ada76e/1_1/640.jpg"
     },
     {
       "id": 6,
@@ -64,7 +33,8 @@
       "category": {
         "id": 10,
         "name": "Money"
-      }
+      },
+      "img": "https://images.blinkist.com/images/books/6064bf2d6cee070007018112/1_1/640.jpg"
     },
     {
       "id": 7,
@@ -75,7 +45,8 @@
       "category": {
         "id": 2,
         "name": "Science"
-      }
+      },
+      "img": "https://images.blinkist.com/images/books/608bcaf36cee07000722912e/1_1/640.jpg"
     },
     {
       "id": 8,
@@ -86,29 +57,8 @@
       "category": {
         "id": 2,
         "name": "Science"
-      }
-    },
-    {
-      "bookTitle": "Test",
-      "bookAuthor": "Dhruv",
-      "bookDuration": "20",
-      "category": {
-        "id": 8,
-        "name": "Test"
       },
-      "isFinished": false,
-      "id": 9
-    },
-    {
-      "bookTitle": "Test 2",
-      "bookAuthor": "Dhruv",
-      "bookDuration": "100",
-      "category": {
-        "id": 8,
-        "name": "Test"
-      },
-      "isFinished": false,
-      "id": 10
+      "img": "https://images.blinkist.com/images/books/60827f886cee0700072c7be4/1_1/640.jpg"
     },
     {
       "bookTitle": "Test 3",
@@ -119,7 +69,8 @@
         "name": "Test"
       },
       "isFinished": true,
-      "id": 11
+      "id": 11,
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg"
     },
     {
       "bookTitle": "Test 4",
@@ -130,7 +81,8 @@
         "name": "Test"
       },
       "isFinished": true,
-      "id": 12
+      "id": 12,
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg"
     },
     {
       "bookTitle": "Test 6",
@@ -141,7 +93,8 @@
         "name": "Test"
       },
       "isFinished": true,
-      "id": 13
+      "id": 13,
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg"
     },
     {
       "bookTitle": "The Psychology of Money",
@@ -151,8 +104,9 @@
         "id": 10,
         "name": "Money"
       },
-      "isFinished": true,
-      "id": 14
+      "isFinished": false,
+      "id": 14,
+      "img": "https://images.blinkist.com/images/books/60140e9d6cee070007f4833a/1_1/640.jpg"
     },
     {
       "bookTitle": "Test 200",
@@ -163,7 +117,8 @@
         "name": "Test"
       },
       "isFinished": true,
-      "id": 15
+      "id": 15,
+      "img": "https://images.blinkist.com/images/books/6014114b6cee070008ada76e/1_1/640.jpg"
     },
     {
       "bookTitle": "Test 3000",
@@ -174,7 +129,8 @@
         "name": "Test"
       },
       "isFinished": true,
-      "id": 16
+      "id": 16,
+      "img": "https://images.blinkist.com/images/books/6014114b6cee070008ada76e/1_1/640.jpg"
     },
     {
       "bookTitle": "Test 500",
@@ -185,7 +141,8 @@
         "name": "Test"
       },
       "isFinished": true,
-      "id": 17
+      "id": 17,
+      "img": "https://images.blinkist.com/images/books/6014114b6cee070008ada76e/1_1/640.jpg"
     },
     {
       "bookTitle": "Meditations",
@@ -195,8 +152,9 @@
         "id": 9,
         "name": "Philosophy"
       },
-      "isFinished": true,
-      "id": 18
+      "isFinished": false,
+      "id": 18,
+      "img": "https://images.blinkist.com/images/books/5713be4f5236f20007c16fa7/1_1/640.jpg"
     },
     {
       "bookTitle": "Test 300067",
@@ -207,7 +165,8 @@
         "name": "Economics"
       },
       "isFinished": true,
-      "id": 19
+      "id": 19,
+      "img": "https://images.blinkist.com/images/books/6014114b6cee070008ada76e/1_1/640.jpg"
     },
     {
       "bookTitle": "Test 50067",
@@ -217,8 +176,9 @@
         "id": 5,
         "name": "History"
       },
-      "isFinished": false,
-      "id": 20
+      "isFinished": true,
+      "id": 20,
+      "img": "https://images.blinkist.com/images/books/6014114b6cee070008ada76e/1_1/640.jpg"
     },
     {
       "bookTitle": "Check",
@@ -229,7 +189,56 @@
         "name": "Marketing & Sales"
       },
       "isFinished": false,
-      "id": 21
+      "id": 21,
+      "img": "https://images.blinkist.com/images/books/6014114b6cee070008ada76e/1_1/640.jpg"
+    },
+    {
+      "bookTitle": "Test 234",
+      "bookAuthor": "Dhruv",
+      "bookDuration": "23",
+      "category": {
+        "id": 6,
+        "name": "Marketing & Sales"
+      },
+      "isFinished": true,
+      "id": 22,
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg"
+    },
+    {
+      "bookTitle": "test 345",
+      "bookAuthor": "Ramya",
+      "bookDuration": "20",
+      "category": {
+        "id": 4,
+        "name": "Politics"
+      },
+      "isFinished": true,
+      "id": 23,
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg"
+    },
+    {
+      "bookTitle": "Test 45",
+      "bookAuthor": "Dhruv",
+      "bookDuration": "13",
+      "category": {
+        "id": 1,
+        "name": "Entrepreneurship"
+      },
+      "isFinished": false,
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 24
+    },
+    {
+      "bookTitle": "Test 56",
+      "bookAuthor": "Dhruv",
+      "bookDuration": "21",
+      "category": {
+        "id": 5,
+        "name": "History"
+      },
+      "isFinished": false,
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 25
     }
   ],
   "category": [

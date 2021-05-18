@@ -1,65 +1,12 @@
 import React from 'react'
-import ButtonItem from '../../atom/Button/Button'
+import ButtonItem from '../../molecule/Button/Button'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { Typography } from '@material-ui/core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRocket, faFlask, faRupeeSign, 
-        faLandmark, faFirstAid, faPiggyBank, 
-        faChartLine, faComments, faMonument, 
-        faLightbulb, faBrain, faMicrochip } from '@fortawesome/free-solid-svg-icons'
-
-
-const icons = {
-    "Entrepreneurship":{
-        src: <FontAwesomeIcon icon={faRocket} />
-    },
-    "Science":{
-        src: <FontAwesomeIcon icon={faFlask} />
-    },
-    "Test":{
-        src: <FontAwesomeIcon icon={faFlask} />
-    },
-    "Economics":{
-        src: <FontAwesomeIcon icon={faRupeeSign} />
-    },
-    "Politics":{
-        src: <FontAwesomeIcon icon={faLandmark} />
-    },
-    "Health":{
-        src: <FontAwesomeIcon icon={faFirstAid} />
-    },
-    "Money":{
-        src: <FontAwesomeIcon icon={faPiggyBank} />
-    },
-    "Marketing & Sales":{
-        src: <FontAwesomeIcon icon={faChartLine} />
-    },
-    "Personal Development":{
-        src: <FontAwesomeIcon icon={faFlask} />
-    },
-    "History":{
-        src: <FontAwesomeIcon icon={faMonument} />
-    },
-    "Communication":{
-        src: <FontAwesomeIcon icon={faComments} />
-    },
-    "Motivation":{
-        src: <FontAwesomeIcon icon={faLightbulb} />
-    },
-    "Psychology":{
-        src: <FontAwesomeIcon icon={faBrain} />
-    },
-    "Technology":{
-        src: <FontAwesomeIcon icon={faMicrochip} />
-    },
-    "Philosophy":{
-        src: <FontAwesomeIcon icon={faBrain} />
-    }
-}
+import icons from '../../../assets/icons'
 
 
 const DropDownMenu = (props) => {
@@ -73,19 +20,28 @@ const DropDownMenu = (props) => {
         setAnchorEl(null);
     };
 
-    const handleSearch = (listItem) => {
+    const handleExplore = (listItem) => {
         props.findBooksByCategory(listItem.id)
         props.setFilterTerm(listItem.name)
         setAnchorEl(null);
     };
 
-    const {listItems,  ...others} = props
+    const addIcon = (name) => {
+        try  { 
+            return icons[name].src
+        }
+        catch (e) {
+            return icons["Test"].src
+        }
+    }
+
+    const {listItems,children,  ...others} = props
 
     return (
         <div>
             <ButtonItem 
                 color= 'primary'
-                children= "Explore"
+                children= {children}
                 variant= "text"
                 endIconNeeded= "more"
                 isOpen = {anchorEl}
@@ -104,14 +60,14 @@ const DropDownMenu = (props) => {
                         {listItems.map((listItem) => (
                             <Grid item xs={12} sm={6} md={4}>
                                 <MenuItem
-                                    onClick={() => handleSearch(listItem)}
+                                    onClick={() => handleExplore(listItem)}
                                     color= 'secondary'
                                     variant= "text"
                                     size= 'large'
                                     style={{paddingBottom: "10px"}}
                                     {...others}>
                                         <ListItemIcon>
-                                            {icons[listItem.name].src}
+                                            {addIcon(listItem.name)}
                                         </ListItemIcon>
                                         <Typography variant="h6">
                                             {listItem.name}

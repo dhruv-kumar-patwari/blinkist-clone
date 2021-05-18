@@ -2,7 +2,7 @@ import 'typeface-roboto';
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { theme } from "../src/component/Theme/Theme"
+import { theme } from "../src/Theme/Theme"
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

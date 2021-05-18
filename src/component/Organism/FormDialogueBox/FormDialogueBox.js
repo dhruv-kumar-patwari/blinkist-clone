@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import AddBookForm from '../Form/Form';
-import ButtonItem from '../../atom/Button/Button';
+import ButtonItem from '../../molecule/Button/Button';
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from "@material-ui/core/styles";
-import {primaryColor, secondaryColor, tertiaryColor } from '../../Theme/Theme'
+import {primaryColor, secondaryColor, tertiaryColor } from '../../../Theme/Theme'
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 
@@ -67,7 +67,7 @@ const FormDialogueBox = (props) => {
     }
 
     const addBook = async (book) => {
-        book = {...book, isFinished: false}
+        book = {...book, isFinished: false, img: "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg"}
         const res = await fetch(`http://localhost:5000/books/`, {
             method:'POST',
             headers: {

@@ -3,10 +3,9 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import ButtonItem from '../../atom/Button/Button'
+import ButtonItem from '../Button/Button'
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import Typography from '@material-ui/core/Typography'
-import img from '../../../images/download.png'
 import './Card.css'
 
 const BookCard = (props) => {
@@ -15,7 +14,7 @@ const BookCard = (props) => {
             <CardMedia
                 component="img"
                 alt={props.bookTitle}
-                image={img}
+                image= {props.img ? props.img : "https://images.blinkist.com/images/books/534d4cb46633610007320000/1_1/640.jpg"}
                 title={props.bookTitle}
             />
             <CardContent>
@@ -34,10 +33,10 @@ const BookCard = (props) => {
             <CardActions  onClick={(e) => props.onClick(e, props.id)}>
                 {props.isFinished ? 
                     <ButtonItem size="medium" color="secondary" variant="contained" fullWidth="true">
-                        Read Again
+                        <Typography variant="body1"><strong>Read Again</strong></Typography>
                     </ButtonItem> : 
                     <ButtonItem size="medium" color="primary" variant="contained" fullWidth="true">
-                        Mark as Finished
+                        <Typography variant="body1"><strong>Mark as Finished</strong></Typography>
                     </ButtonItem>
                 }
             </CardActions>

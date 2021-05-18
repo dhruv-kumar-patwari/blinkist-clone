@@ -1,5 +1,5 @@
 import {React, useState, useEffect} from 'react'
-import ButtonItem from '../../atom/Button/Button';
+import ButtonItem from '../../molecule/Button/Button';
 import SearchIcon from '@material-ui/icons/Search';
 import DropDownMenu from '../DropDownMenu/DropDownMenu'
 import List from '../../molecule/List/List'
@@ -32,6 +32,7 @@ const NavBar = (props) => {
                 <ButtonItem children={<SearchIcon />} onClick={props.onClickSearch}/>
 
                 <DropDownMenu listItems={props.listItems} 
+                                children = "Explore"
                                 setSearchTerm={props.setSearchTerm} 
                                 searchTerm={props.searchTerm} 
                                 searchFunction={props.searchFunction}
@@ -44,7 +45,7 @@ const NavBar = (props) => {
                 <FormDialogueBox setBookList={props.setBookList} bookList = {props.bookList} menuItemsList={props.listItems} fetchCategory={props.fetchCategory}/>
             </div>
             {!isAuthenticated ? 
-                <ButtonItem children="Login" variant="contained" className="profileButton" color="primary" onClick={() => loginWithRedirect()} />
+                <ButtonItem children="Login" variant="text" className="profileButton" color="primary" onClick={() => loginWithRedirect()} />
                 : <Profile />
             }
         </div>

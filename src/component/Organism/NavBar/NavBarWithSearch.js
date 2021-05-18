@@ -1,5 +1,5 @@
 import {React, useState, useEffect} from 'react'
-import ButtonItem from '../../atom/Button/Button';
+import ButtonItem from '../../molecule/Button/Button';
 import SearchIcon from '@material-ui/icons/Search';
 import SearchInputField from '../../atom/InputFields/SearchInputField'
 import './NavBar.css'
@@ -33,10 +33,11 @@ const NavBarWithSearch = (props) => {
                     placeholder={props.placeholder} 
                     value = {props.searchTerm}
                     onChange = {handleSearch}
+                    style={{width: "30rem"}}
                 />
             </div>
             {!isAuthenticated ? 
-                <ButtonItem children="Login" variant="contained" className="profileButton" color="primary" onClick={() => loginWithRedirect()} />
+                <ButtonItem children="Login" variant="text" className="profileButton" color="primary" onClick={() => loginWithRedirect()} />
                 : <Profile />
             }
         </div>

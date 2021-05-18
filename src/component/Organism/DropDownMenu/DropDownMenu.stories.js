@@ -10,8 +10,30 @@ const Template = args => (<DropDownMenu {...args} />)
 
 export const Default = Template.bind({})
 Default.args = {
-    listItems: ["Entrepreneurship", "Science", "Economics", 
-                "Politics", "Health", "Money", "Marketing & Sales", 
-                "Personal Development", "History", 
-                "Communication", "Motivation", "Psychology", "Technology"],
+    listItems: [
+    {
+        "id": 1,
+        "name": "Entrepreneurship"
+    },
+    {
+        "id": 2,
+        "name": "Science"
+    },
+    {
+        "id": 3,
+        "name": "Economics"
+    },
+    {
+        "id": 4,
+        "name": "Politics"
+    },
+    {
+        "id": 5,
+        "name": "History"
+    },
+    {
+        "id": 6,
+        "name": "Marketing & Sales"
+    }],
+    children: "Explore"
 }

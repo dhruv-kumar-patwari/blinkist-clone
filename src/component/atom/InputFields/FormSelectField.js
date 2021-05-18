@@ -4,21 +4,29 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import NoSsr from '@material-ui/core/NoSsr'
 import './Form.css'
-import styled from 'styled-components';
-import {secondaryColor, tertiaryColor} from '../../Theme/Theme'
+import {secondaryColor, tertiaryColor} from '../../../Theme/Theme'
 
-const StyledSelectField = styled(Select)`
-    .MuiOutlinedInput-root {
-        &:hover fieldset {
-            border-color: ${secondaryColor};
-        }
-        &.Mui-focused fieldset {
-            border-color: ${tertiaryColor};
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+    select: {
+        "&:before": {
+            // normal
+            borderColor: tertiaryColor
+        },
+        "&:after": {
+            // focused
+            borderColor: tertiaryColor
+        },
+        "&:hover:not(.Mui-disabled):not(.Mui-focused):not(.Mui-error):before": {
+            // hover
+            borderColor: tertiaryColor
         }
     }
-`;
+});
 
 const FormSelectField = (props) => {
+    const classes = useStyles();
     var { labelText, menuItemsList , ...rest} = props
     return (
         <div>
@@ -26,14 +34,15 @@ const FormSelectField = (props) => {
                 {labelText}
             </Typography>
             <NoSsr>
-                <StyledSelectField
+                <Select
                     size= 'medium'
                     variant= 'outlined'
                     fullWidth
+                    className={classes.select}
                     {...rest}
                 >
                     {menuItemsList.map((listItem) => (<MenuItem value={listItem.id}>{listItem.name}</MenuItem>))}
-                </StyledSelectField>
+                </Select>
             </NoSsr>
         </div>
     )

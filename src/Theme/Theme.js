@@ -1,12 +1,12 @@
-import 'typeface-roboto';
-import React from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
-import Raleway from '../../assets/Raleway-VariableFont_wght.ttf'
+import "@fontsource/raleway"
 
 export const primaryColor = "#032356";
 export const secondaryColor = "#6d787e";
 export const tertiaryColor = "#68DF81";
 export const fourthColor = "#0552be";
+const lightBlue = "#F1F6F4";
+
 
 export const theme = createMuiTheme({
     palette: {
@@ -19,14 +19,7 @@ export const theme = createMuiTheme({
     },
     typography: {
         overflowWrap: "break-word",
-        fontFamily: 'Raleway',
-        src: `
-            local('Raleway'),
-            local('Raleway-Regular'),
-            url(${Raleway}) format('ttf')
-        `,
-        unicodeRange:
-            'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF',
+        fontFamily:"Raleway",
         h6: {
             fontSize: "1.125rem",
             fontWeight: "700",
@@ -132,8 +125,34 @@ export const theme = createMuiTheme({
             },
             textSizeLarge:{
                 fontSize: "1rem"
-            }
+            },
+            containedPrimary: {
+                backgroundColor: "transparent",
+                color: primaryColor,
+                boxShadow: "0px",
+                '&:hover': {
+                    backgroundColor: primaryColor,
+                    color: "white"
+                },
+                borderRadius: "0",
+                padding: "5% 0"
+            },
+            containedSecondary: {
+                backgroundColor: "transparent",
+                color: secondaryColor,
+                boxShadow: "0px",
+                '&:hover': {
+                    backgroundColor: secondaryColor,
+                    color: "white"
+                },
+                borderRadius: "0",
+                padding: "5% 0"
+            },
+            contained: {
+                boxShadow: "0px",
+            },
         },
+        
         MuiIconButton: {
             root:{
                 '&:hover': {
@@ -200,7 +219,7 @@ export const theme = createMuiTheme({
         },
         MuiMenu: {
             paper: {
-                backgroundColor: "#F1F6F4"
+                backgroundColor: lightBlue
             }
         },
         MuiPaper: {
@@ -215,6 +234,9 @@ export const theme = createMuiTheme({
             root: {
                 border: "1px solid #BAC8CE",
                 borderTop: 0,
+                '&:hover':{
+                    backgroundColor: lightBlue,
+                }
             }
         },
         MuiCardActions: {
@@ -223,6 +245,7 @@ export const theme = createMuiTheme({
                 borderTop: 0,
                 borderBottomRightRadius: "0.25rem",
                 borderBottomLeftRadius: "0.25rem",
+                padding: "0px"
             }
         },
         MuiOutlinedInput: {

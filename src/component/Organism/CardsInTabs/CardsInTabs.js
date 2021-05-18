@@ -2,10 +2,9 @@ import React from 'react'
 import CardGrid from '../../molecule/CardGrid/CardGrid'
 import TabsList from '../../atom/Tabs/Tabs'
 import TabPanel from '../../atom/TabPanel/TabPanel'
-import { useEffect } from 'react';
 
 const CardsInTabs = (props) => {
-    const [currentTab, setCurrentTab] = React.useState(0);
+    const [currentTab, setCurrentTab] = React.useState(props.currentTab? parseInt(props.currentTab) : 0);
 
     const handleChange = (event, newValue) => {
         setCurrentTab(newValue);
