@@ -12,13 +12,13 @@ const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 function App() {
   return (
     <Auth0Provider
-    domain={domain}
-    clientId={clientId}
-    redirectUri={window.location.origin}>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-        <Page />
-    </ThemeProvider>
+      domain={domain}
+      clientId={clientId}
+      redirectUri={window.location.origin}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+            <Page />
+        </ThemeProvider>
   </Auth0Provider>
   );
 }

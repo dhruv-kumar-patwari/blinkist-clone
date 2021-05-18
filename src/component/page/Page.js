@@ -131,31 +131,38 @@ function Page() {
         </Container>
         <Container maxWidth="md">
                 {searchTerm ? <>
-                    <Typography variant="h4"><strong>{searchResult.length > 0 ? `All results for "${searchTerm}"` : `Nothing found for "${searchTerm}"`}</strong></Typography> 
+                    <Typography variant="h4"><strong>{renderTextDependingOnSearchResultLength()}</strong></Typography> 
                     <CardGrid bookList={searchResult} onClick={changeReadStatus} /></> :
-                    (filterTerm ? 
-                    <>
-                    <Typography variant="h4"><strong>{filterTerm}</strong></Typography> 
-                    <CardGrid bookList={filteredBookList} onClick={changeReadStatus} />
-                    </> : 
-                    <>
-                    <Typography variant="h4"><strong>My Library</strong></Typography>
-                    <CardsInTabs
-                        bookList = {bookList}
-                        setBookList={setBookList}
-                        fetchBook= {fetchBook}
-                        changeReadStatus = {changeReadStatus}
-                        finished = {finished}
-                        unFinished = {unFinished}
-                        style={{background: "rgba(58,70,73,.7)"}}
-                    />
-                </>)
+                    (renderFilterComponentsElseRenderMyLibrary())
                 
                 }
         </Container>
 
         </>
     );
+
+    function renderFilterComponentsElseRenderMyLibrary() {
+        return filterTerm ?
+            <>
+                <Typography variant="h4"><strong>{filterTerm}</strong></Typography>
+                <CardGrid bookList={filteredBookList} onClick={changeReadStatus} />
+            </> :
+            <>
+                <Typography variant="h4"><strong>My Library</strong></Typography>
+                <CardsInTabs
+                    bookList={bookList}
+                    setBookList={setBookList}
+                    fetchBook={fetchBook}
+                    changeReadStatus={changeReadStatus}
+                    finished={finished}
+                    unFinished={unFinished}
+                    style={{ background: "rgba(58,70,73,.7)" }} />
+            </>;
+    }
+
+    function renderTextDependingOnSearchResultLength() {
+        return searchResult.length > 0 ? `All results for "${searchTerm}"` : `Nothing found for "${searchTerm}"`;
+    }
 }
 
 export default Page;

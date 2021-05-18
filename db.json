@@ -17,7 +17,7 @@
       "bookTitle": "ROI in Marketing",
       "bookAuthor": "Jack Phillips",
       "bookDuration": "12",
-      "isFinished": false,
+      "isFinished": true,
       "category": {
         "id": 10,
         "name": "Money"
@@ -29,7 +29,7 @@
       "bookTitle": "Sales EQ",
       "bookAuthor": "Jeb Blount",
       "bookDuration": "13",
-      "isFinished": true,
+      "isFinished": false,
       "category": {
         "id": 10,
         "name": "Money"
@@ -41,7 +41,7 @@
       "bookTitle": "Genesis",
       "bookAuthor": "Guido Tonelli",
       "bookDuration": "12",
-      "isFinished": true,
+      "isFinished": false,
       "category": {
         "id": 2,
         "name": "Science"
@@ -68,7 +68,7 @@
         "id": 8,
         "name": "Test"
       },
-      "isFinished": true,
+      "isFinished": false,
       "id": 11,
       "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg"
     },
@@ -104,7 +104,7 @@
         "id": 10,
         "name": "Money"
       },
-      "isFinished": false,
+      "isFinished": true,
       "id": 14,
       "img": "https://images.blinkist.com/images/books/60140e9d6cee070007f4833a/1_1/640.jpg"
     },
@@ -188,7 +188,7 @@
         "id": 6,
         "name": "Marketing & Sales"
       },
-      "isFinished": false,
+      "isFinished": true,
       "id": 21,
       "img": "https://images.blinkist.com/images/books/6014114b6cee070008ada76e/1_1/640.jpg"
     },
@@ -236,9 +236,21 @@
         "id": 5,
         "name": "History"
       },
-      "isFinished": false,
+      "isFinished": true,
       "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
       "id": 25
+    },
+    {
+      "bookTitle": "Test 20034",
+      "bookAuthor": "Dhruv",
+      "bookDuration": "14",
+      "category": {
+        "id": 1,
+        "name": "Entrepreneurship"
+      },
+      "isFinished": false,
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 26
     }
   ],
   "category": [
