@@ -67,8 +67,8 @@ const FormDialogueBox = (props) => {
     }
 
     const addBook = async (book) => {
-        book = {...book, isFinished: false, img: "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg"}
-        const res = await fetch(`http://localhost:5000/books/`, {
+        book = {...book, img: "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg"}
+        const res = await fetch(`http://localhost:5000/allBooks/`, {
             method:'POST',
             headers: {
                 'Content-Type': 'application/json'

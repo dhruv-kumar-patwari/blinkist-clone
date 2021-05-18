@@ -6,6 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import ButtonItem from '../Button/Button'
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import Typography from '@material-ui/core/Typography'
+import AddIcon from '@material-ui/icons/Add';
 import './Card.css'
 
 const BookCard = (props) => {
@@ -30,13 +31,11 @@ const BookCard = (props) => {
                     </div>
                 </Typography>
             </CardContent>
-            <CardActions  onClick={(e) => props.onClick(e, props.id)}>
-                {props.isFinished ? 
-                    <ButtonItem size="medium" color="secondary" variant="contained" fullWidth="true">
-                        <Typography variant="body1"><strong>Read Again</strong></Typography>
-                    </ButtonItem> : 
-                    <ButtonItem size="medium" color="primary" variant="contained" fullWidth="true">
-                        <Typography variant="body1"><strong>Mark as Finished</strong></Typography>
+            <CardActions >
+                {props.isInLibrary(props.id) ? 
+                    (changeButtonBasedOnReadStatus(props)) :
+                    <ButtonItem startIcon= { <AddIcon /> } onClick={(e) => props.addToLibrary(e, props.id)} size="medium" color="primary" variant="contained" fullWidth="true">
+                        <Typography variant="body1"><strong>Add to library</strong></Typography>
                     </ButtonItem>
                 }
             </CardActions>
@@ -51,3 +50,13 @@ BookCard.defaultProps = {
 }
 
 export default BookCard
+function changeButtonBasedOnReadStatus(props) {
+    return props.isFinished ?
+        <ButtonItem onClick={(e) => props.onClick(e, props.id)} size="medium" color="secondary" variant="contained" fullWidth="true">
+            <Typography variant="body1"><strong>Read Again</strong></Typography>
+        </ButtonItem> :
+        <ButtonItem onClick={(e) => props.onClick(e, props.id)} size="medium" color="primary" variant="contained" fullWidth="true">
+            <Typography variant="body1"><strong>Mark as Finished</strong></Typography>
+        </ButtonItem>;
+}
+

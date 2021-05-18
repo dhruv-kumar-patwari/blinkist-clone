@@ -14,6 +14,8 @@ export const CardGrid = (props) => {
                         bookDuration={book.bookDuration} 
                         isFinished={book.isFinished} 
                         img={book.img} 
+                        isInLibrary = {props.isInLibrary}
+                        addToLibrary={props.addToLibrary}
                         onClick={(e) => props.onClick(e, book.id)}
                     />
                 </Grid>

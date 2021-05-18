@@ -14,6 +14,7 @@ const isUnFinished = (x) => {
 
 function Page() {
     const [bookList, setBookList] = useState([])
+    const [libraryBooks, setLibraryBooks] = useState([])
     const [categories, setCategories] = useState([])
     const [searchResult, setSearchResult] = useState([])
     const [searchTerm, setSearchTerm] = useState("");
@@ -21,11 +22,11 @@ function Page() {
     const [filterTerm, setFilterTerm] = useState("");
 
     const [unFinished, setUnFinished] = useState(
-        bookList.filter(isUnFinished)
+        libraryBooks.filter(isUnFinished)
     );
     
     const [finished, setFinished] = useState(
-        bookList.filter(isFinished)
+        libraryBooks.filter(isFinished)
     );
 
     useEffect(() => {
@@ -39,19 +40,54 @@ function Page() {
             setCategories(categoriesFromServer)
         }
 
+        const getLibraryBooks = async () => {
+            const booksFromServer =  await fetchLibraryBooks()
+            setLibraryBooks(booksFromServer)
+        }
+
         getBooks()
         getCategories()
+        getLibraryBooks()
     }, []);
 
     useEffect(() => {
-        setUnFinished(bookList.filter(isUnFinished))
-        setFinished(bookList.filter(isFinished))
-    }, [bookList]);
+        setUnFinished(libraryBooks.filter(isUnFinished))
+        setFinished(libraryBooks.filter(isFinished))
+    }, [libraryBooks]);
 
     const fetchBooks = async () => {
-        const response = await fetch('http://localhost:5000/books')
+        const response = await fetch('http://localhost:5000/allBooks')
         const data = await response.json()
         return data
+    }
+
+    const fetchLibraryBooks = async () => {
+        const response = await fetch('http://localhost:5000/myLibrary')
+        const data = await response.json()
+        let books = []
+        for (let book of data) {
+            let newBook = await fetchBook(book.id)
+            newBook = { ...newBook, isFinished: book.isFinished }
+            books.push(newBook)
+        }
+
+        return books
+    }
+
+    const fetchLibraryBook = async (id) => {
+        const response = await fetch(`http://localhost:5000/myLibrary/${id}`)
+        const data = await response.json()
+        
+        return data
+    }
+
+    const isInLibrary = (id) => {
+        for (let book of libraryBooks){
+            if (book.id === id){
+                return true
+            }
+        }
+        return false
     }
 
     const fetchCategories = async () => {
@@ -61,7 +97,7 @@ function Page() {
     }
 
     const fetchBook = async (id) => {
-        const res = await fetch(`http://localhost:5000/books/${id}`)
+        const res = await fetch(`http://localhost:5000/allBooks/${id}`)
         const data = await res.json()
 
         return data
@@ -72,12 +108,42 @@ function Page() {
         return data.name
     }
 
+    const addToLibrary = async (e, id) => {
+        const bookToAdd = { id: id, isFinished: false }
+
+        const res = await fetch(`http://localhost:5000/myLibrary`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(bookToAdd),
+        })
+
+        const jsonData = await res.json()
+        let updatedData = await fetchBook(jsonData.id)
+        updatedData = { ...updatedData, isFinished: false }
+
+        setLibraryBooks([...libraryBooks, updatedData])
+
+        const bookStatusUpdate = (book) => {
+            return book.id === id
+            ? {...book, isFinished : updatedData.isFinished} 
+            : book 
+        }
+        
+        setFilteredBookList(
+        filteredBookList.map((book) => bookStatusUpdate(book)))
+
+        setSearchResult(
+        searchResult.map((book) => bookStatusUpdate(book)))
+    }
+
     const changeReadStatus = async (e, data) => {
 
-        const bookToToggle = await fetchBook(data)
+        const bookToToggle = await fetchLibraryBook(data)
         const updatedBook = { ...bookToToggle, isFinished: !bookToToggle.isFinished }
 
-        const res = await fetch(`http://localhost:5000/books/${data}`, {
+        const res = await fetch(`http://localhost:5000/myLibrary/${data}`, {
             method: 'PUT',
             headers: {
                 'Content-type': 'application/json',
@@ -92,9 +158,8 @@ function Page() {
             ? {...book, isFinished : updatedData.isFinished} 
             : book 
         }
-        
-        setBookList(
-            bookList.map((book) => bookStatusUpdate(book)))
+        setLibraryBooks(
+            libraryBooks.map((book) => bookStatusUpdate(book)))
         
         setFilteredBookList(
         filteredBookList.map((book) => bookStatusUpdate(book)))
@@ -102,11 +167,7 @@ function Page() {
         setSearchResult(
         searchResult.map((book) => bookStatusUpdate(book)))
     }
-
-    useEffect(() => {
-        console.log(filteredBookList)
-    }, [filteredBookList]);
-
+    
     const findBooksByCategory = (data) => {
         const filteredList = bookList.filter((book) => (book.category.id === data))
         setFilteredBookList(filteredList)
@@ -132,7 +193,7 @@ function Page() {
         <Container maxWidth="md">
                 {searchTerm ? <>
                     <Typography variant="h4"><strong>{renderTextDependingOnSearchResultLength()}</strong></Typography> 
-                    <CardGrid bookList={searchResult} onClick={changeReadStatus} /></> :
+                    <CardGrid addToLibrary={addToLibrary} bookList={searchResult} isInLibrary={isInLibrary} onClick={changeReadStatus} /></> :
                     (renderFilterComponentsElseRenderMyLibrary())
                 
                 }
@@ -145,7 +206,7 @@ function Page() {
         return filterTerm ?
             <>
                 <Typography variant="h4"><strong>{filterTerm}</strong></Typography>
-                <CardGrid bookList={filteredBookList} onClick={changeReadStatus} />
+                <CardGrid addToLibrary={addToLibrary} bookList={filteredBookList} isInLibrary={isInLibrary} onClick={changeReadStatus} />
             </> :
             <>
                 <Typography variant="h4"><strong>My Library</strong></Typography>
@@ -156,6 +217,8 @@ function Page() {
                     changeReadStatus={changeReadStatus}
                     finished={finished}
                     unFinished={unFinished}
+                    isInLibrary={isInLibrary}
+                    addToLibrary={addToLibrary}
                     style={{ background: "rgba(58,70,73,.7)" }} />
             </>;
     }

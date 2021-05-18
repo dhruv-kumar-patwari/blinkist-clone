@@ -16,10 +16,10 @@ const CardsInTabs = (props) => {
         <>
             <TabsList children={["Currently Reading", "Finished"]} value={currentTab} onChange={handleChange} />
             <TabPanel value={currentTab} index={0}>
-                <CardGrid bookList={props.unFinished} onClick={props.changeReadStatus} />
+                <CardGrid addToLibrary={props.addToLibrary} isInLibrary={props.isInLibrary} bookList={props.unFinished} onClick={props.changeReadStatus} />
             </TabPanel>
             <TabPanel value={currentTab} index={1}>
-                <CardGrid bookList={props.finished} onClick={props.changeReadStatus} />
+                <CardGrid addToLibrary={props.addToLibrary} isInLibrary={props.isInLibrary} bookList={props.finished} onClick={props.changeReadStatus} />
             </TabPanel>
         </>
     )
