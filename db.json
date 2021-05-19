@@ -299,19 +299,19 @@
   "myLibrary": [
     {
       "id": 26,
-      "isFinished": true
+      "isFinished": false
     },
     {
       "id": 7,
-      "isFinished": true
+      "isFinished": false
     },
     {
       "id": 8,
-      "isFinished": true
+      "isFinished": false
     },
     {
       "id": 27,
-      "isFinished": true
+      "isFinished": false
     },
     {
       "id": 25,
@@ -331,6 +331,14 @@
     },
     {
       "id": 28,
+      "isFinished": true
+    },
+    {
+      "id": 18,
+      "isFinished": false
+    },
+    {
+      "id": 5,
       "isFinished": true
     }
   ]

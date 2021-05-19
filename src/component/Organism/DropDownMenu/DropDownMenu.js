@@ -6,8 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { Typography } from '@material-ui/core';
-import icons from '../../../assets/icons'
-
+import MenuListItem from '../../molecule/MenuItem/MenuItem'
 
 const DropDownMenu = (props) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -25,15 +24,6 @@ const DropDownMenu = (props) => {
         props.setFilterTerm(listItem.name)
         setAnchorEl(null);
     };
-
-    const addIcon = (name) => {
-        try  { 
-            return icons[name].src
-        }
-        catch (e) {
-            return icons["Test"].src
-        }
-    }
 
     const {listItems,children,  ...others} = props
 
@@ -58,22 +48,15 @@ const DropDownMenu = (props) => {
                 <Container maxWidth="md">
                     <Grid container direction={"row"}>
                         {listItems.map((listItem) => (
-                            <Grid item xs={12} sm={6} md={4}>
-                                <MenuItem
-                                    onClick={() => handleExplore(listItem)}
-                                    color= 'secondary'
-                                    variant= "text"
-                                    size= 'large'
-                                    style={{paddingBottom: "10px"}}
-                                    {...others}>
-                                        <ListItemIcon>
-                                            {addIcon(listItem.name)}
-                                        </ListItemIcon>
-                                        <Typography variant="h6">
-                                            {listItem.name}
-                                        </Typography>
-                                    </MenuItem>
-                            </Grid>
+                            <MenuListItem 
+                                onClick={() => handleExplore(listItem)}
+                                color= 'secondary'
+                                variant= "text"
+                                size= 'large'
+                                style={{paddingBottom: "10px"}}
+                                {...others}
+                                listItems={[listItem]}
+                            />
                         ))}
                     </Grid>
                 </Container>

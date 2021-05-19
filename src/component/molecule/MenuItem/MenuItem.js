@@ -1,26 +1,37 @@
-// import React from 'react'
+import React from 'react'
 
-// import {MenuItem as Menu} from '@material-ui/core/MenuItem';
+import MenuItem from '@material-ui/core/MenuItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import { Typography } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import icons from '../../../assets/icons'
 
-// const MenuItem = () => {
-//     return (
-//         <div>
-//             <MenuItem
-//                 onClick={() => handleExplore(listItem)}
-//                 color= 'secondary'
-//                 variant= "text"
-//                 size= 'large'
-//                 style={{paddingBottom: "10px"}}
-//                 {...others}>
-//                     <ListItemIcon>
-//                         {addIcon(listItem.name)}
-//                     </ListItemIcon>
-//                     <Typography variant="h6">
-//                         {listItem.name}
-//                     </Typography>
-//             </MenuItem>
-//         </div>
-//     )
-// }
 
-// export default MenuItem
+const addIcon = (name) => {
+    try  { 
+        return icons[name].src
+    }
+    catch (e) {
+        return icons["Test"].src
+    }
+}
+
+const MenuListItem = ({listItems, ...props}) => {
+    return (
+        listItems.map((listItem) => (
+            <Grid item xs={12} sm={6} md={4}>
+                <MenuItem
+                    {...props}>
+                    <ListItemIcon>
+                        {addIcon(listItem.name)}
+                    </ListItemIcon>
+                    <Typography variant="h6" style={{paddingTop: "0.5rem"}}>
+                        {listItem.name}
+                    </Typography>
+                </MenuItem>
+            </Grid>
+        ))
+    )
+}
+
+export default MenuListItem

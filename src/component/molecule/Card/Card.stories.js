@@ -8,7 +8,12 @@ export default {
 
 const Template = args => (<BookCard {...args} />)
 
+const test = () => {
+    return true
+}
+
 export const CardWithDynamicInput = Template.bind({})
 CardWithDynamicInput.args = {
-    isFinished: false
+    isFinished: false,
+    isInLibrary: test
 }

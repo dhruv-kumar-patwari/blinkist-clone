@@ -8,6 +8,10 @@ export default {
 
 const Template = args => (<CardGrid {...args} />)
 
+const test = () => {
+    return false
+}
+
 export const Default = Template.bind({})
 Default.args = {
     bookList: [
@@ -77,5 +81,6 @@ Default.args = {
             bookDuration: "20",
             isFinished: false
         },
-    ]
+    ],
+    isInLibrary: test
 }

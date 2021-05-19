@@ -1,6 +1,5 @@
 import React from 'react'
 import FormInputField from '../../atom/InputFields/FormInputField';
-import ButtonItem from '../Button/Button'
 
 const Form = () => {
     return (
@@ -23,7 +22,6 @@ const Form = () => {
                 placeholder= 'Duration'
                 labelText = "Duration"
             /> <br />
-            <ButtonItem children="Add" variant="contained" color="primary"/>
         </div>
     )
 }

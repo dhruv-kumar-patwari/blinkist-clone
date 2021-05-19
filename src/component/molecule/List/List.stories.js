@@ -19,17 +19,6 @@ NavBarElements.args = {
     orientation: "horizontal"
 }
 
-export const ExploreDropDowm = Template.bind({})
-ExploreDropDowm.args = {
-    listItems: ["Entrepreneurship", "Science", "Economics", "Politics", "Health", "Money"],
-    startIconNeeded: ["Entrepreneurship", "Science", "Economics", "Politics", "Health", "Money"],
-    color: 'secondary',
-    href: '#',
-    variant: "text",
-    orientation: "vertical",
-    size: 'large'
-}
-
 export const FooterList = Template.bind({})
 FooterList.args = {
     listItems: ["Book lists", "What is Nonfiction?", "What to Read Next", "Benefits of Reading", "Pricing"],

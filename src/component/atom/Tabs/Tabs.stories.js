@@ -4,6 +4,14 @@ import TabsList from './Tabs';
 export default {
     title: "Atom/Tabs",
     component: TabsList,
+    argTypes: {
+        value: {
+            control: {
+                type: 'radio',
+                options: [0, 1]
+            }
+        }
+    }
 }
 
 const Template = args=>(<TabsList {...args} />)
