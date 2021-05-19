@@ -9,7 +9,7 @@ export default {
 const Template = args => (<BookCard {...args} />)
 
 const test = () => {
-    return true
+    return false
 }
 
 export const CardWithDynamicInput = Template.bind({})

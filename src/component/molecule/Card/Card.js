@@ -19,15 +19,16 @@ const BookCard = (props) => {
                 title={props.bookTitle}
             />
             <CardContent>
-                <Typography gutterBottom variant="h6" color="primary" component="h2">
+                <Typography gutterBottom variant="h6">
                     {props.bookTitle}
                 </Typography>
-                <Typography className="author" gutterBottom variant="body1" color="secondary" component="h2">
-                    {props.bookAuthor}
+                <Typography className="author" gutterBottom variant="body1" color="secondary">
+                    <strong>{props.bookAuthor}</strong>
                 </Typography>
-                <Typography gutterBottom variant="body2" component="h2">
+                <Typography gutterBottom variant="body2">
                     <div class="timeSection">
-                        <ScheduleIcon className="icon"/> <div class="timeText">{props.bookDuration}-minute read</div>
+                        <img src="https://d17pjsg7x52x9r.cloudfront.net/assets/components/book_card/clock-b0e2e0235fbe1df824d662b2b3b96611e3711bf5b5c7556b8bd3828720f86dbc.svg" alt="" className="icon" />
+                        <div class="timeText">{props.bookDuration}-minute read</div>
                     </div>
                 </Typography>
             </CardContent>

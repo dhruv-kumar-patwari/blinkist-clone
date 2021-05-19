@@ -16,10 +16,11 @@ const styles = theme => ({
     containedGreen: {
         color: primaryColor,
         backgroundColor: tertiaryColor,
-        borderRadius: 0,
+        borderRadius: 4,
         "&:hover": {
             backgroundColor: "#20ba68",
-        }
+        },
+        padding: "2% 8%"
     },
     titleText: {
         color: primaryColor,
@@ -86,7 +87,7 @@ const FormDialogueBox = (props) => {
             <ButtonItem color="primary" variant= "text" onClick={handleClickOpen}>
                 Add Book
             </ButtonItem>
-            <Dialog fullWidth={true} maxWidth="sm" open={open} onClose={handleClose}>
+            <Dialog fullWidth={true} maxWidth="xs" open={open} onClose={handleClose}>
                 <DialogTitle id="form-dialog-title">
                     <IconButton
                         className={classes.closeButton}
@@ -112,9 +113,11 @@ const FormDialogueBox = (props) => {
                 </DialogContent>
                 <DialogActions>
                     <ButtonItem onClick={handleClose} size="large" color="secondary">
-                        Close
+                        <strong>Close</strong>
                     </ButtonItem>
-                    <ButtonItem children="Add" variant="contained" size="large" onClick={onSubmit} className={classes.containedGreen} />
+                    <ButtonItem variant="contained" size="large" onClick={onSubmit} className={classes.containedGreen}>
+                        <strong>Add</strong>
+                    </ButtonItem>
                 </DialogActions>
             </Dialog>
         </div>

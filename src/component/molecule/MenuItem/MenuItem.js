@@ -25,7 +25,7 @@ const MenuListItem = ({listItems, ...props}) => {
                     <ListItemIcon>
                         {addIcon(listItem.name)}
                     </ListItemIcon>
-                    <Typography variant="h6" style={{paddingTop: "0.5rem"}}>
+                    <Typography variant="h3" style={{paddingTop: "0.5rem"}}>
                         {listItem.name}
                     </Typography>
                 </MenuItem>

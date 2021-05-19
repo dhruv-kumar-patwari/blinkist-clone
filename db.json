@@ -294,12 +294,34 @@
       },
       "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
       "id": 28
+    },
+    {
+      "bookTitle": "Test 34",
+      "bookAuthor": "Tilak",
+      "bookDuration": "12",
+      "category": {
+        "id": 9,
+        "name": "Philosophy"
+      },
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 29
+    },
+    {
+      "bookTitle": "Test 5645",
+      "bookAuthor": "Standup",
+      "bookDuration": "125",
+      "category": {
+        "id": 9,
+        "name": "Philosophy"
+      },
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 30
     }
   ],
   "myLibrary": [
     {
       "id": 26,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 7,
@@ -340,6 +362,18 @@
     {
       "id": 5,
       "isFinished": true
+    },
+    {
+      "id": 12,
+      "isFinished": true
+    },
+    {
+      "id": 29,
+      "isFinished": false
+    },
+    {
+      "id": 30,
+      "isFinished": false
     }
   ]
 }

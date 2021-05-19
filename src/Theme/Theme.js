@@ -11,7 +11,7 @@ const lightBlue = "#F1F6F4";
 export const theme = createMuiTheme({
     palette: {
         primary: {
-        main: primaryColor,
+        main: tertiaryColor,
         },
         secondary: {
         main: secondaryColor,
@@ -25,6 +25,7 @@ export const theme = createMuiTheme({
             fontWeight: "700",
             lineHeight: "1.33",
             marginBottom: "0.5rem",
+            color: primaryColor
         },
         body1: {
             fontWeight: "500",
@@ -44,7 +45,13 @@ export const theme = createMuiTheme({
             lineHeight: "2.8125rem",
             color: "#03314B",
             fontWeight: 600,
-            marginBottom: "5rem"
+            marginBottom: "5rem",
+        },
+        h3: {
+            fontSize: "1.125rem",
+            fontWeight: "700",
+            lineHeight: "1.33",
+            marginBottom: "0.5rem",
         }
     },
     overrides: {

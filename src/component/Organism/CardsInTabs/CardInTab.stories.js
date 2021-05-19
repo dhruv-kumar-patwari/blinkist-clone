@@ -4,6 +4,14 @@ import CardsInTabs from './CardsInTabs'
 export default {
     title: "Organism/CardsInTabs",
     component: CardsInTabs,
+    argTypes: {
+        currentTab: {
+            control: {
+                type: 'radio',
+                options: [0, 1]
+            }
+        }
+    }
 }
 
 const Template = args => (<CardsInTabs {...args} />)
@@ -32,49 +40,7 @@ const books = [
             bookAuthor: "Gorge Orwell",
             bookDuration: "20",
             isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "Animal Farm",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
-        {
-            bookTitle: "1984",
-            bookAuthor: "Gorge Orwell",
-            bookDuration: "20",
-            isFinished: false
-        },
+        }
     ]
 const test = () => {
     return false
@@ -83,7 +49,7 @@ export const Default = Template.bind({})
 Default.args = {
     unFinished: books,
     finished: books,
-    currentTab: "0",
+    currentTab: 0,
     isInLibrary: test
 
 }
