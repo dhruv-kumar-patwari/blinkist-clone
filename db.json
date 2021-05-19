@@ -316,6 +316,17 @@
       },
       "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
       "id": 30
+    },
+    {
+      "bookTitle": "Test 300034",
+      "bookAuthor": "Iron Man",
+      "bookDuration": "23",
+      "category": {
+        "id": 4,
+        "name": "Politics"
+      },
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 31
     }
   ],
   "myLibrary": [
@@ -325,11 +336,11 @@
     },
     {
       "id": 7,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 8,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 27,
@@ -373,6 +384,26 @@
     },
     {
       "id": 30,
+      "isFinished": false
+    },
+    {
+      "id": 13,
+      "isFinished": true
+    },
+    {
+      "id": 20,
+      "isFinished": false
+    },
+    {
+      "id": 31,
+      "isFinished": false
+    },
+    {
+      "id": 16,
+      "isFinished": false
+    },
+    {
+      "id": 15,
       "isFinished": false
     }
   ]

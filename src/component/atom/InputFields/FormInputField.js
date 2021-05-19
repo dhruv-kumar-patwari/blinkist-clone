@@ -7,7 +7,7 @@ const FormInputField = (props) => {
     var { labelText , ...rest} = props
     return (
         <div>
-            <Typography variant="h6" color="secondary" gutterBottom>
+            <Typography data-testid="formLabel" variant="h6" color="secondary" gutterBottom>
                 {labelText}
             </Typography>
                 <TextField
@@ -15,9 +15,9 @@ const FormInputField = (props) => {
                     variant= 'outlined'
                     className="field"
                     fullWidth
+                    data-testid="textField"
                     {...rest}
-                >{props.children}
-            </TextField>
+                />
         </div>
     )
 }

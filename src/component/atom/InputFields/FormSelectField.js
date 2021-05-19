@@ -2,7 +2,6 @@ import React from 'react'
 import { Typography } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import NoSsr from '@material-ui/core/NoSsr'
 import './Form.css'
 
 
@@ -13,16 +12,14 @@ const FormSelectField = (props) => {
             <Typography variant="h6" color="secondary" gutterBottom>
                 {labelText}
             </Typography>
-            <NoSsr>
-                <Select
-                    size= 'medium'
-                    variant= 'outlined'
-                    fullWidth
-                    {...rest}
-                >
-                    {menuItemsList.map((listItem) => (<MenuItem value={listItem.id}>{listItem.name}</MenuItem>))}
-                </Select>
-            </NoSsr>
+            <Select
+                size= 'medium'
+                variant= 'outlined'
+                fullWidth
+                {...rest}
+            >
+                {menuItemsList.map((listItem, index) => (<MenuItem key={index} value={listItem.id}>{listItem.name}</MenuItem>))}
+            </Select>
         </div>
     )
 }
