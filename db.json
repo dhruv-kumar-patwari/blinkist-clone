@@ -327,12 +327,44 @@
       },
       "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
       "id": 31
+    },
+    {
+      "bookTitle": "Test 1034",
+      "bookAuthor": "Dhruv",
+      "bookDuration": "40",
+      "category": {
+        "id": 3,
+        "name": "Economics"
+      },
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 32
+    },
+    {
+      "bookTitle": "Check 364",
+      "bookAuthor": "Dhruv",
+      "bookDuration": "45",
+      "category": {
+        "id": 1,
+        "name": "Entrepreneurship"
+      },
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 33
+    },
+    {
+      "bookTitle": "gerge",
+      "bookAuthor": "wewer",
+      "bookDuration": "2345234",
+      "category": {
+        "id": 2
+      },
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 34
     }
   ],
   "myLibrary": [
     {
       "id": 26,
-      "isFinished": true
+      "isFinished": false
     },
     {
       "id": 7,
@@ -340,11 +372,11 @@
     },
     {
       "id": 8,
-      "isFinished": true
+      "isFinished": false
     },
     {
       "id": 27,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 25,
@@ -360,7 +392,7 @@
     },
     {
       "id": 21,
-      "isFinished": true
+      "isFinished": false
     },
     {
       "id": 28,
@@ -368,7 +400,7 @@
     },
     {
       "id": 18,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 5,
@@ -380,11 +412,11 @@
     },
     {
       "id": 29,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 30,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 13,
@@ -392,18 +424,34 @@
     },
     {
       "id": 20,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 31,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 16,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 15,
+      "isFinished": true
+    },
+    {
+      "id": 32,
+      "isFinished": true
+    },
+    {
+      "id": 17,
+      "isFinished": true
+    },
+    {
+      "id": 4,
+      "isFinished": true
+    },
+    {
+      "id": 22,
       "isFinished": false
     }
   ]

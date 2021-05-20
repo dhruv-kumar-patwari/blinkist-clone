@@ -2,14 +2,15 @@ import Button from '@material-ui/core/Button';
 import big from '../../../assets/logo/big.svg'
 import small from '../../../assets/logo/small.svg'
 import icons from '../../../assets/icons'
+import PropTypes from 'prop-types';
 
 
 const ButtonItem = (props) => {
     return (props.endIconNeeded? 
-                <Button endIcon = {ifOpenRenderUpArrowElseDownArrow(props)} style={{paddingRight: "2rem"}} {...props} >
+                <Button data-testid="icon-button" aria-label={props.children} role="button" endIcon = {ifOpenRenderUpArrowElseDownArrow(props)} style={{paddingRight: "2rem"}} {...props} >
                     {props.children}
                 </Button> : 
-                <Button {...props} style={{justifyContent:"center"}}>
+                <Button role="button" {...props} style={{justifyContent:"center"}}>
                     {renderButtonWithLogoOrText(props)}
                 </Button>
     )            
@@ -24,12 +25,15 @@ function ifOpenRenderUpArrowElseDownArrow(props) {
 
 function renderButtonWithLogoOrText(props) {
     return props.logoSize === "big" ?
-        <img style={{ display: 'block', minWidth: "9rem" }} src={big} alt="logo" /> :
+        <img style={{ display: 'block', minWidth: "9rem" }} src={big} alt="large logo" /> :
         (renderSmallButtonOrButtonWithText());
 
     function renderSmallButtonOrButtonWithText() {
         return props.logoSize === "small" ?
-            <img src={small} alt="logo" /> : props.children;
+            <img src={small} alt="small logo" /> : props.children;
     }
 }
 
+ButtonItem.propTypes = {
+    isOpen: PropTypes.bool,
+};

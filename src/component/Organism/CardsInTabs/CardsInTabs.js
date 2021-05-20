@@ -4,7 +4,7 @@ import TabsList from '../../atom/Tabs/Tabs'
 import TabPanel from '../../atom/TabPanel/TabPanel'
 
 const CardsInTabs = (props) => {
-    const [currentTab, setCurrentTab] = React.useState(props.currentTab? parseInt(props.currentTab) : 0);
+    const [currentTab, setCurrentTab] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setCurrentTab(newValue);

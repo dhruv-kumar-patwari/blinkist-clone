@@ -3,10 +3,10 @@
     display:flex;
 }
 .timeText {
-    margin-top: 0.150rem;
-    margin-left: 0.5rem;
+    margin-top: 0.550rem;
 }
 
 .icon {
-    padding-top: 0.2rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.3rem;
 }

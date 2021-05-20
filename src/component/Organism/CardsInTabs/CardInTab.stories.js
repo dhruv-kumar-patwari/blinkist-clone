@@ -43,13 +43,12 @@ const books = [
         }
     ]
 const test = () => {
-    return false
+    return true
 }
 export const Default = Template.bind({})
 Default.args = {
     unFinished: books,
     finished: books,
-    currentTab: 0,
     isInLibrary: test
 
 }

@@ -39,6 +39,7 @@ const AddBookForm = (props) => {
                 value = {props.category.id}
                 onChange={(e) => {handleChange(e)}}
                 menuItemsList = {props.menuItemsList}
+                data-testid = "select"
             /> <br />
             <FormInputField 
                 id= "bookDuration"

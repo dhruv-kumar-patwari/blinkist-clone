@@ -1,52 +1,43 @@
 import React from 'react';
-import AddBookForm from './Form'
+import FormDialogueBox from './FormDialogueBox'
 
 export default {
-    title: "Organism/AddBookForm",
-    component: AddBookForm,
+    title: "Organism/FormDialogueBox",
+    component: FormDialogueBox,
 }
 
-const Template = args => (<AddBookForm {...args} />)
-
+const Template = args => (<FormDialogueBox {...args} />)
 
 const test = () => {
-    console.log("Yo!")
+    console.log("Check")
 }
-
 
 export const Default = Template.bind({})
 Default.args = {
     menuItemsList: [
-        {
+    {
         "id": 1,
         "name": "Entrepreneurship"
-        },
-        {
+    },
+    {
         "id": 2,
         "name": "Science"
-        },
-        {
+    },
+    {
         "id": 3,
         "name": "Economics"
-        },
-        {
+    },
+    {
         "id": 4,
         "name": "Politics"
-        },
-        {
+    },
+    {
         "id": 5,
         "name": "History"
-        },
-        {
+    },
+    {
         "id": 6,
         "name": "Marketing & Sales"
-        }
-    ],
-    category: {
-        id: 1
-    },
-    setBookTitle: test,
-    setBookAuthor: test,
-    setBookDuration: test
-
+    }],
+    fetchCategory: test
 }

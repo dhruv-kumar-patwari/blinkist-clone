@@ -3,13 +3,11 @@ import ButtonItem from '../Button/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 
 const List = (props) => {
-    const {listItems, startIconNeeded, linkTo,   ...others} = props
+    const {listItems, linkTo,   ...others} = props
     return (
         <div>
             <ButtonGroup orientation={props.orientation}>
-                {startIconNeeded?  
-                    listItems.map((listItem) => (<ButtonItem children={listItem} startIconNeeded={listItem} {...others} />)) : 
-                    listItems.map((listItem, index) => (<ButtonItem children={listItem} onClick={props.restore_list} {...others} />))}
+                {listItems.map((listItem, index) => (<ButtonItem children={listItem} onClick={props.restore_list} {...others} />))}
             </ButtonGroup>
         </div>
     )

@@ -27,7 +27,7 @@ const NavBar = (props) => {
     return (
         <div className="NavBar">
             <div class="left">
-                {(width < breakpoint) ? <ButtonItem logoSize="small" /> : <ButtonItem logoSize="big" />}
+                {(width < breakpoint) ? <ButtonItem logoSize="small" onClick={props.restore_list}/> : <ButtonItem logoSize="big" onClick={props.restore_list}/>}
 
                 <ButtonItem children={<SearchIcon />} onClick={props.onClickSearch}/>
 

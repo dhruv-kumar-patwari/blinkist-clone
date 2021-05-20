@@ -19,7 +19,7 @@ const addIcon = (name) => {
 const MenuListItem = ({listItems, ...props}) => {
     return (
         listItems.map((listItem) => (
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={4} key={props.unique}>
                 <MenuItem
                     {...props}>
                     <ListItemIcon>
