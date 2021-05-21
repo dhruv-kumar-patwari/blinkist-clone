@@ -1,6 +1,6 @@
 import React from 'react'
-import Form from './Form'
-import {render, screen, fireEvent, waitFor} from '@testing-library/react'
+import Form, {util} from './Form'
+import {render, screen, fireEvent, within, waitFor} from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 const mockLib = jest.fn()
@@ -34,11 +34,10 @@ const menuItemsList= [
 
 it("Enter values in form changes form state", async () => {
     render(<Form menuItemsList={menuItemsList} 
-        category= {{id: 1}} 
+        category= {{id: 2}} 
         setBookTitle={mockLib} 
         setBookAuthor={mockLib} 
         setBookDuration={mockLib} 
-        handleChange={mockLib} 
         fetchCategory = {mockLib}
         setCategory={mockLib}
         bookTitle="title book"
@@ -49,18 +48,28 @@ it("Enter values in form changes form state", async () => {
     screen.getByDisplayValue('title book')
     screen.getByDisplayValue('book author name')
     screen.getByDisplayValue('20')
-    screen.getByRole("button", {name: "Entrepreneurship Value"})
+    screen.getByRole("button", {name: "Science"})
 
     fireEvent.change(screen.getByPlaceholderText("Book Name"), { target: { value: 'Animal' }})
     expect(mockLib).toHaveBeenCalledTimes(1)
+    expect(mockLib).toHaveBeenCalledWith('Animal')
 
-    fireEvent.change(screen.getByPlaceholderText("Author Name"), { target: { value: 'Animal' }})
+    fireEvent.change(screen.getByPlaceholderText("Author Name"), { target: { value: 'Animal Author' }})
     expect(mockLib).toHaveBeenCalledTimes(2)
+    expect(mockLib).toHaveBeenCalledWith('Animal Author')
 
     fireEvent.change(screen.getByPlaceholderText("Duration"), { target: { value: 30 }})
     expect(mockLib).toHaveBeenCalledTimes(3)
+    expect(mockLib).toHaveBeenCalledWith("30")
     
-    // fireEvent.click(screen.getByRole("button", {name: "Entrepreneurship Value"}))
-    // await waitFor(() =>expect(screen.getByRole("button", {expanded:true})).toBeTruthy())
-    // expect(mockLib).toHaveBeenCalledTimes(5)
+    const spy = jest.spyOn(util, 'handleChange')
+
+    fireEvent.mouseDown(screen.getByRole("button", {name: "Science"}));
+
+    fireEvent.click(within(screen.getByRole("listbox")).getByText("History"));
+
+    expect(spy).toHaveBeenCalledWith(5)
+    expect(spy).toHaveBeenCalledTimes(1)
+
+    await waitFor(() => expect(mockLib).toHaveBeenCalledTimes(5))
 })

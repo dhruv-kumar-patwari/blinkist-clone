@@ -2,14 +2,15 @@ import { React } from 'react'
 import FormInputField from '../../atom/InputFields/FormInputField';
 import FormSelectField from '../../atom/InputFields/FormSelectField';
 
-
+export const util = {handleChange: null };
 
 const AddBookForm = (props) => {
 
-    const handleChange = async (e) => {
-        const categoryName = await props.fetchCategory(e.target.value)
+    util.handleChange = async (value) => {
+        console.log(value)
+        const categoryName = await props.fetchCategory(value)
         props.setCategory({
-            id: e.target.value,
+            id: value,
             name: categoryName
         })
     }
@@ -37,9 +38,8 @@ const AddBookForm = (props) => {
                 id= "category"
                 labelText = "Category"
                 value = {props.category.id}
-                onChange={(e) => {handleChange(e)}}
-                menuItemsList = {props.menuItemsList}
-                data-testid = "select"
+                onChange={(e) => {util.handleChange(e.target.value)}}
+                data-testid="category"
             /> <br />
             <FormInputField 
                 id= "bookDuration"

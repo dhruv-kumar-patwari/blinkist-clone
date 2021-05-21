@@ -62,5 +62,7 @@ it("Click on menu will fire an event and close the dropdown", async () => {
 
     fireEvent.click(screen.getByText("Entrepreneurship"))
     expect(mockLib).toHaveBeenCalledTimes(2)
+    expect(mockLib).toHaveBeenCalledWith("Entrepreneurship")
+    expect(mockLib).toHaveBeenCalledWith(1)
     await waitFor(() => expect(screen.getByRole("presentation", {hidden:true})).toHaveStyle("visibility: hidden"))
 })

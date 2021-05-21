@@ -42,7 +42,7 @@ const Profile=()=>{
                     anchorEl={anchorEl}
                     keepMounted
                     open={Boolean(anchorEl)}
-                    onClose={handleClose}
+                    onClick={handleClose}
                     style={{top: "60px", width: "5%"}}
                 >
                     <MenuItem onClick={() => logout({ returnTo: window.location.origin })}>Logout</MenuItem>

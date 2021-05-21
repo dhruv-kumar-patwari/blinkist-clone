@@ -14,9 +14,10 @@ const SearchInputField = (props) => {
                 endAdornment= {
                     <InputAdornment position="end">
                         <IconButton
-                            aria-label="toggle password visibility"
+                            aria-label="close-search"
                             onClick={props.onClickCross}
                             edge="end"
+                            data-testid="closeSearch"
                             >
                             <CloseIcon />
                         </IconButton>

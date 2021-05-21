@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
 import BookCard from '../Card/Card'
 import Grid from '@material-ui/core/Grid';
 
 export const CardGrid = (props) => {
+    
     return (
         <Grid container spacing={3}>
             {props.bookList.map((book, index) => (

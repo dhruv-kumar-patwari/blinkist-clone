@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import Context from '../../../util/context';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -10,6 +11,8 @@ import { withStyles } from "@material-ui/core/styles";
 import {primaryColor, secondaryColor, tertiaryColor } from '../../../Theme/Theme'
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+
+export const util = {alertWindow: null,  addBook: null};
 
 
 const styles = theme => ({
@@ -35,13 +38,20 @@ const styles = theme => ({
 })
 
 const FormDialogueBox = (props) => {
+
+    const { bookList,setBookList } = useContext(Context);
+
     const { classes } = props;
 
-    const [bookTitle, setBookTitle] = useState('')
-    const [bookAuthor, setBookAuthor] = useState('')
-    const [bookDuration, setBookDuration] = useState(0)
-    const [category, setCategory] = useState({id: -1 , name: ""})
+    const [bookTitle, setBookTitle] = useState('');
+    const [bookAuthor, setBookAuthor] = useState('');
+    const [bookDuration, setBookDuration] = useState(0);
+    const [category, setCategory] = useState({id: 0 , name: "Select a category"});
     const [open, setOpen] = React.useState(false);
+
+    util.alertWindow = () => {
+        window.alert("Please add book")
+    }
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -55,19 +65,19 @@ const FormDialogueBox = (props) => {
         e.preventDefault();
 
         if(!bookTitle){
-            alert("Please add book")
+            util.alertWindow()
             return 
         }
 
-        addBook({bookTitle, bookAuthor, bookDuration, category})
+        util.addBook({bookTitle, bookAuthor, bookDuration, category})
 
         setBookTitle('')
         setBookAuthor('')
-        setCategory('')
+        setCategory(1)
         setBookDuration(0)
     }
 
-    const addBook = async (book) => {
+    util.addBook = async (book) => {
         book = {...book, img: "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg"}
         const res = await fetch(`http://localhost:5000/allBooks/`, {
             method:'POST',
@@ -79,7 +89,7 @@ const FormDialogueBox = (props) => {
 
         const data = await res.json()
 
-        props.setBookList([...props.bookList, data])
+        setBookList([...bookList, data])
     }
 
     return (
@@ -107,7 +117,6 @@ const FormDialogueBox = (props) => {
                         setBookDuration={setBookDuration}
                         category={category}
                         setCategory={setCategory}
-                        menuItemsList={props.menuItemsList}
                         fetchCategory={props.fetchCategory}
                     />
                 </DialogContent>

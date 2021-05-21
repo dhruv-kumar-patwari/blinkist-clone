@@ -351,24 +351,58 @@
       "id": 33
     },
     {
-      "bookTitle": "gerge",
-      "bookAuthor": "wewer",
-      "bookDuration": "2345234",
+      "bookTitle": "Test 1023",
+      "bookAuthor": "Dhruv",
+      "bookDuration": "12",
       "category": {
-        "id": 2
+        "id": 3,
+        "name": "Economics"
       },
       "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
       "id": 34
+    },
+    {
+      "bookTitle": "asdfasd",
+      "bookAuthor": "sdfasdf",
+      "bookDuration": "12",
+      "category": {
+        "id": 3,
+        "name": "Economics"
+      },
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 35
+    },
+    {
+      "bookTitle": "jhujbujhbwdf we",
+      "bookAuthor": "34edrfge",
+      "bookDuration": "12",
+      "category": {
+        "id": 6,
+        "name": "Marketing & Sales"
+      },
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 36
+    },
+    {
+      "bookTitle": "test 345234",
+      "bookAuthor": "Dhruv",
+      "bookDuration": "40",
+      "category": {
+        "id": 2,
+        "name": "Science"
+      },
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 37
     }
   ],
   "myLibrary": [
     {
       "id": 26,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 7,
-      "isFinished": true
+      "isFinished": false
     },
     {
       "id": 8,
@@ -400,11 +434,11 @@
     },
     {
       "id": 18,
-      "isFinished": true
+      "isFinished": false
     },
     {
       "id": 5,
-      "isFinished": true
+      "isFinished": false
     },
     {
       "id": 12,
@@ -448,10 +482,22 @@
     },
     {
       "id": 4,
-      "isFinished": true
+      "isFinished": false
     },
     {
       "id": 22,
+      "isFinished": true
+    },
+    {
+      "id": 23,
+      "isFinished": true
+    },
+    {
+      "id": 35,
+      "isFinished": true
+    },
+    {
+      "id": 36,
       "isFinished": false
     }
   ]

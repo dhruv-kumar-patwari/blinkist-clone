@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from 'react'
+import { useState, useEffect} from 'react'
 import ButtonItem from '../../molecule/Button/Button';
 import SearchIcon from '@material-ui/icons/Search';
 import DropDownMenu from '../DropDownMenu/DropDownMenu'
@@ -11,6 +11,7 @@ import FormDialogueBox from '../FormDialogueBox/FormDialogueBox'
 
     
 const NavBar = (props) => {
+
     const [width, setWidth] = useState(window.innerWidth);
     const breakpoint = 620;
     const { loginWithRedirect, isAuthenticated } = useAuth0();
@@ -27,22 +28,21 @@ const NavBar = (props) => {
     return (
         <div className="NavBar">
             <div class="left">
-                {(width < breakpoint) ? <ButtonItem logoSize="small" onClick={props.restore_list}/> : <ButtonItem logoSize="big" onClick={props.restore_list}/>}
+                {(width < breakpoint) ? 
+                    <ButtonItem logoSize="small" onClick={handleRestore}/> : 
+                    <ButtonItem logoSize="big" onClick={handleRestore}/>}
 
-                <ButtonItem children={<SearchIcon />} onClick={props.onClickSearch}/>
+                <ButtonItem children={<SearchIcon />} 
+                    onClick={props.onClickSearch} data-testid="searchButton" />
 
-                <DropDownMenu listItems={props.listItems} 
-                                children = "Explore"
-                                setSearchTerm={props.setSearchTerm} 
-                                searchTerm={props.searchTerm} 
-                                searchFunction={props.searchFunction}
-                                onClickSearch={props.onClickSearch}
+                <DropDownMenu children = "Explore"
                                 findBooksByCategory={props.findBooksByCategory}
                                 setFilterTerm={props.setFilterTerm}
                             />
 
-                <List listItems={props.menuItems} linkTo={props.linkTo} color="primary" variant= "text" restore_list = {handleRestore} />
-                <FormDialogueBox setBookList={props.setBookList} bookList = {props.bookList} menuItemsList={props.listItems} fetchCategory={props.fetchCategory}/>
+                <List listItems={props.menuItems} linkTo={props.linkTo} 
+                    color="primary" variant= "text" restore_list = {handleRestore} />
+                <FormDialogueBox fetchCategory={props.fetchCategory}/>
             </div>
             {!isAuthenticated ? 
                 <ButtonItem children="Login" variant="text" className="profileButton" color="primary" onClick={() => loginWithRedirect()} />

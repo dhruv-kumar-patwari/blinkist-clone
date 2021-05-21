@@ -1,4 +1,5 @@
-import {React, useState, useEffect} from 'react'
+import {React, useState, useEffect, useContext} from 'react'
+import Context from '../../../util/context';
 import ButtonItem from '../../molecule/Button/Button';
 import SearchIcon from '@material-ui/icons/Search';
 import SearchInputField from '../../atom/InputFields/SearchInputField'
@@ -8,6 +9,7 @@ import Profile from "../Profile/Profile"
 
 
 const NavBarWithSearch = (props) => {
+    const { searchTerm, setSearchTerm } = useContext(Context);
     const [width, setWidth] = useState(window.innerWidth);
     const breakpoint = 620;
     const { loginWithRedirect, isAuthenticated } = useAuth0();
@@ -19,19 +21,21 @@ const NavBarWithSearch = (props) => {
     }, []);
 
     const handleSearch = (e) => {
-        props.setSearchTerm(e.target.value)
+        setSearchTerm(e.target.value)
     }
     
     return (
         <div className="NavBar">
             <div class="left">
-                {(width < breakpoint) ? <ButtonItem logoSize="small" /> : <ButtonItem logoSize="big" />}
-                <ButtonItem children={<SearchIcon />} onClick={props.onClickSearch} />
+                {(width < breakpoint) ? 
+                    <ButtonItem logoSize="small" onClick={props.onClickSearch} /> : 
+                    <ButtonItem logoSize="big" onClick={props.onClickSearch} />}
+                <ButtonItem children={<SearchIcon />} onClick={props.onClickSearch} data-testid="searchButton"/>
                 <SearchInputField 
                     className="SearchBar" 
                     onClickCross={props.onClickSearch} 
                     placeholder={props.placeholder} 
-                    value = {props.searchTerm}
+                    value = {searchTerm}
                     onChange = {handleSearch}
                     style={{width: "30rem"}}
                 />

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Context from '../../../util/context';
 import ButtonItem from '../../molecule/Button/Button'
 import Menu from '@material-ui/core/Menu';
 import Grid from '@material-ui/core/Grid';
@@ -6,6 +7,9 @@ import Container from '@material-ui/core/Container';
 import MenuListItem from '../../molecule/MenuItem/MenuItem'
 
 const DropDownMenu = (props) => {
+
+    const { categories } = useContext(Context);
+
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
@@ -22,7 +26,7 @@ const DropDownMenu = (props) => {
         setAnchorEl(null);
     };
 
-    const {listItems,children,  ...others} = props
+    const {children,  ...others} = props
 
     return (
         <div>
@@ -45,13 +49,12 @@ const DropDownMenu = (props) => {
             >
                 <Container maxWidth="md">
                     <Grid container direction={"row"}>
-                        {listItems.map((listItem) => (
+                        {categories.map((listItem) => (
                             <MenuListItem 
                                 onClick={() => handleExplore(listItem)}
                                 color= 'secondary'
                                 variant= "text"
                                 size= 'large'
-                                style={{paddingBottom: "10px"}}
                                 {...others}
                                 listItems={[listItem]}
                             />

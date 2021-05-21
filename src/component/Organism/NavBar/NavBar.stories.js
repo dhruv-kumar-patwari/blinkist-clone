@@ -44,7 +44,7 @@ Default.args = {
     listItems: dropDownText,
     linkTo : ["/"],
     menuItems : ["My Library"],
-    etSearchResult: test,
+    setSearchResult: test,
     setSearchTerm: test,
     setFilterTerm: test
 }

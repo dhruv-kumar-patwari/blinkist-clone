@@ -1,56 +1,28 @@
-import {React, useState, useEffect } from 'react'
+import { useState, useContext } from 'react'
+import Context from '../../../util/context';
 import NavBar from './NavBar'
 import NavBarWithSearch from './NavBarWithSearch'
 import './NavBar.css'
 
 const IntegratedNavBar = ({toggleSearchBar, ...props}) => {
 
+    const { setSearchTerm } = useContext(Context);
+
     const [showSearchBar, setShowSearchBar] = useState(false)
 
-    const handleChange = (e, valueToSearch) => {
+    const handleChange = () => {
         setShowSearchBar(!showSearchBar)
-        valueToSearch ? props.setSearchTerm(valueToSearch) : props.setSearchTerm("")
+        setSearchTerm("")
     }
-
-    const handleSearch = (valueToSearch) => {
-        if (valueToSearch)
-            props.setSearchTerm(valueToSearch)
-        if(props.searchTerm !== ""){
-            const filteredBooks = props.bookList.filter((book) => {
-                return Object.values(book)
-                                .join(" ")
-                                .toLowerCase()
-                                .includes(props.searchTerm
-                                .toLowerCase())
-            })
-
-            props.setSearchResult(filteredBooks)
-        }
-        else{
-            props.setSearchResult(props.bookList)
-        }
-    }
-
-    useEffect(() => {
-        handleSearch()
-    }, [props.searchTerm]);
 
     return (
         <div>
             {!showSearchBar ? 
-                <NavBar {...props} onClickSearch={handleChange} 
-                    searchFunction={handleSearch} 
-                    setBookList={props.setBookList} 
-                    findBooksByCategory={props.findBooksByCategory}
-                    bookList = {props.bookList}/> :
+                <NavBar {...props} onClickSearch={handleChange}
+                    findBooksByCategory={props.findBooksByCategory} /> :
 
                 <NavBarWithSearch onClickSearch={handleChange} 
-                placeholder="Search by Author or Title"
-                    searchResult = {props.searchResult}
-                    setSearchResult = {props.setSearchResult}
-                    searchTerm = {props.searchTerm}
-                    setSearchTerm = {props.setSearchTerm}
-                    bookList = {props.bookList}
+                    placeholder="Search by Author or Title"
                 />            
             }
         </div>
