@@ -1,15 +1,12 @@
 import React from 'react';
-import Page, { fetchLibraryBook, fetchBook, fetchCategory, util } from './Page';
+import Page, { util } from './Page';
 import {render, screen, fireEvent, waitFor, getByTestId, getByPlaceholderText} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import Context from '../../util/context';
+import { fetchLibraryBook, fetchBook, fetchCategory } from '../../util/functions';
 
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    json: () => Promise.resolve({ rates: { CAD: 1.42 } }),
-  })
-);
+jest.mock("../../util/functions");
 
 jest.mock("@auth0/auth0-react");
 
@@ -209,9 +206,9 @@ it("Filter must be set", async () => {
     screen.getByText("The Bully Pulpit");
 });
 
-xit("fetchLibraryBook returns the book with available id", async () => {    
+it("fetchLibraryBook returns the book with available id", async () => {    
 
     await fetchLibraryBook(1);
-    // expect(fetch).toHaveBeenCalledTimes(1);
-    // expect(fetch).toHaveBeenCalledWith("http://localhost:5000/myLibrary/26");
+    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(fetch).toHaveBeenCalledWith("http://localhost:5000/myLibrary/26");
 });

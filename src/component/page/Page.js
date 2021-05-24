@@ -4,25 +4,7 @@ import CardsInTabs from '../Organism/CardsInTabs/CardsInTabs';
 import { React, useState, useEffect, useContext } from 'react';
 import CardGrid from '../molecule/CardGrid/CardGrid';
 import Context from '../../util/context';
-
-export const fetchLibraryBook = async (id) => {
-    const data = fetch(`http://localhost:5000/myLibrary/${id}`).then(response.json());
-    
-    return data;
-};
-
-export const fetchBook = async (id) => {
-    const res = await fetch(`http://localhost:5000/allBooks/${id}`);
-    const data = await res.json();
-
-    return data;
-};
-
-export const fetchCategory = async (id) => {
-    const res = await fetch(`http://localhost:5000/category/${id}`);
-    const data = await res.json();
-    return data.name;
-};
+import { fetchLibraryBook, fetchBook, fetchCategory } from '../../util/functions';
 
 export const util = {
     addToLibrary: null,
