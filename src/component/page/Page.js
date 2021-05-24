@@ -4,7 +4,7 @@ import CardsInTabs from '../Organism/CardsInTabs/CardsInTabs';
 import { React, useState, useEffect, useContext } from 'react';
 import CardGrid from '../molecule/CardGrid/CardGrid';
 import Context from '../../util/context';
-import { fetchLibraryBook, fetchBook, fetchCategory } from '../../util/functions';
+import { fetchBook, fetchCategory, postBookToLibrary, updateLibraryBook } from '../../util/functions';
 
 export const util = {
     addToLibrary: null,
@@ -54,17 +54,8 @@ function Page() {
     };
 
     util.addToLibrary = async (e, id) => {
-        const bookToAdd = { id: id, isFinished: false };
-
-        const res = await fetch(`http://localhost:5000/myLibrary`, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(bookToAdd),
-        });
-
-        const jsonData = await res.json();
+        const jsonData = await postBookToLibrary(id);
+        console.log(jsonData);
         let updatedData = await fetchBook(jsonData.id);
         updatedData = { ...updatedData, isFinished: false };
 
@@ -73,18 +64,7 @@ function Page() {
 
     util.changeReadStatus = async (e, data) => {
 
-        const bookToToggle = await fetchLibraryBook(data);
-        const updatedBook = { ...bookToToggle, isFinished: !bookToToggle.isFinished };
-
-        const res = await fetch(`http://localhost:5000/myLibrary/${data}`, {
-            method: 'PUT',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(updatedBook),
-        });
-
-        const updatedData = await res.json();
+        const updatedData = await updateLibraryBook(data);
 
         const bookStatusUpdate = (book) => {
             return book.id === data
@@ -153,3 +133,7 @@ function Page() {
 }
 
 export default Page;
+
+
+
+

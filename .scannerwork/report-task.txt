@@ -1,0 +1,7 @@
+organization=dhruv-kumar-patwari
+projectKey=dhruv-kumar-patwari_blinkist-clone
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.20278
+dashboardUrl=https://sonarcloud.io/dashboard?id=dhruv-kumar-patwari_blinkist-clone
+ceTaskId=AXmevDlbeP-nodV5zxNa
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXmevDlbeP-nodV5zxNa

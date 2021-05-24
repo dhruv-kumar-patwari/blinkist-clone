@@ -1,10 +1,10 @@
 import React from 'react';
 import Page, { util } from './Page';
-import {render, screen, fireEvent, waitFor, getByTestId, getByPlaceholderText} from '@testing-library/react';
+import {render, screen, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import Context from '../../util/context';
-import { fetchLibraryBook, fetchBook, fetchCategory } from '../../util/functions';
+import { fetchBook, postBookToLibrary, updateLibraryBook } from '../../util/functions';
 
 jest.mock("../../util/functions");
 
@@ -60,18 +60,31 @@ const bookList = [
     },
 ];
 
+const libraryBooks = [
+    {
+        "id": 7,
+        "bookTitle": "The Bully Pulpit",
+        "bookAuthor": "Doris Kearns Goodwin",
+        "bookDuration": "19",
+        "category": {
+            "id": 4,
+            "name": "Politics"
+        },
+        "img": "https://images.blinkist.com/images/books/608aa9b16cee070007228a70/1_1/640.jpg"
+    }
+];
+
 const searchResult = [
     {
-        bookTitle: "Test Search",
-        bookAuthor: "Gorge Orwell",
-        bookDuration: "20",
-        isFinished: true
-    },
-    {
-        bookTitle: "Animal Farm finished",
-        bookAuthor: "Gorge Orwell",
-        bookDuration: "20",
-        isFinished: true
+        "id": 4,
+        "bookTitle": "Test Search",
+        "bookAuthor": "Doris Kearns Goodwin",
+        "bookDuration": "19",
+        "category": {
+            "id": 4,
+            "name": "Politics"
+        },
+        "img": "https://images.blinkist.com/images/books/608aa9b16cee070007228a70/1_1/640.jpg"
     }
 ];
 
@@ -108,7 +121,7 @@ const args = {
     searchTerm: "",
     setSearchTerm: mockLib,
     setSearchResult: mockSetSearchResult,
-    libraryBooks: bookList,
+    libraryBooks: libraryBooks,
     setLibraryBooks: mockLib,
     searchResult: searchResult
 };
@@ -124,6 +137,18 @@ function renderPage(args) {
         </Context.Provider>
     );
 }
+
+const book = {
+    bookTitle: "test cat",
+    bookAuthor: "cat",
+    bookDuration: "10",
+    category: {
+        id: 3,
+        name: "Economics"
+    },
+    img: "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+    id: 2
+};
 
 it("Card in tabs is rendered", async () => {
     renderPage(args);
@@ -165,8 +190,6 @@ it("If search term is non empty search result is displayed", async () => {
 
     screen.getByText("Test Search");
 
-    screen.getByText("Animal Farm finished");
-
     screen.getByText(`All results for "test"`);
 });
 
@@ -206,9 +229,37 @@ it("Filter must be set", async () => {
     screen.getByText("The Bully Pulpit");
 });
 
-it("fetchLibraryBook returns the book with available id", async () => {    
+it("isInLib returns false if not in lib and true id in lib", async () => {    
 
-    await fetchLibraryBook(1);
-    expect(fetch).toHaveBeenCalledTimes(1);
-    expect(fetch).toHaveBeenCalledWith("http://localhost:5000/myLibrary/26");
+    expect(util.isInLibrary(1)).toBe(false);
+    expect(util.isInLibrary(7)).toBe(true);
+});
+
+it("Add to library function adds book to libraryBooks", async () => {
+    postBookToLibrary.mockReturnValue(
+        Promise.resolve({
+            id: 2,
+            isFinished: true
+        })
+    );
+    fetchBook.mockReturnValue(
+        Promise.resolve(book)
+    );
+    await util.addToLibrary(15);
+    expect(fetchBook).toHaveBeenCalledWith(2);
+    const updatedTestBook = {...book, isFinished: false};
+    expect(mockLib).toHaveBeenCalledWith([...libraryBooks, updatedTestBook]);
+});
+
+it("Change read status changes the status of each book", async () => {
+    updateLibraryBook.mockReturnValue(
+        Promise.resolve({
+            id: 4,
+            isFinished: false
+        })
+    );
+    
+    await util.changeReadStatus("x", 4);
+    expect(mockSetSearchResult).toHaveBeenCalledWith([{...searchResult[0], isFinished: false}]);
+    expect(mockLib).toHaveBeenCalledWith(libraryBooks);
 });

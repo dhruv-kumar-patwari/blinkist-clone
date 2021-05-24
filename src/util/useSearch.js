@@ -1,7 +1,7 @@
 import {useState, useEffect } from 'react';
 
-const useSearch = (bookList) => {
-    const [searchTerm, setSearchTerm] = useState("");
+const useSearch = ({bookList, initialValue}) => {
+    const [searchTerm, setSearchTerm] = useState(initialValue ? initialValue : "");
     const [searchResult, setSearchResult] = useState([]);
 
     const handleSearch = () => {
