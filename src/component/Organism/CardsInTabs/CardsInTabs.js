@@ -1,7 +1,7 @@
-import React from 'react'
-import CardGrid from '../../molecule/CardGrid/CardGrid'
-import TabsList from '../../atom/Tabs/Tabs'
-import TabPanel from '../../atom/TabPanel/TabPanel'
+import React from 'react';
+import CardGrid from '../../molecule/CardGrid/CardGrid';
+import TabsList from '../../atom/Tabs/Tabs';
+import TabPanel from '../../atom/TabPanel/TabPanel';
 
 const CardsInTabs = (props) => {
     const [currentTab, setCurrentTab] = React.useState(0);
@@ -22,7 +22,7 @@ const CardsInTabs = (props) => {
                 <CardGrid addToLibrary={props.addToLibrary} isInLibrary={props.isInLibrary} bookList={props.finished} onClick={props.changeReadStatus} />
             </TabPanel>
         </>
-    )
-}
+    );
+};
 
-export default CardsInTabs
+export default CardsInTabs;

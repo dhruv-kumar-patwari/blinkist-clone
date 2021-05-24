@@ -1,8 +1,8 @@
-import React from 'react'
-import {render, cleanup} from '@testing-library/react'
-import SearchInputField from './SearchInputField'
+import React from 'react';
+import {render, cleanup} from '@testing-library/react';
+import SearchInputField from './SearchInputField';
 
-afterEach(cleanup)
+afterEach(cleanup);
 
 // it('should take a snapshot', () => {
 //     const { asFragment } = render(<SearchInputField />)
@@ -11,7 +11,7 @@ afterEach(cleanup)
 // });
 
 it('Placeholder should be equal to the passed value', () => {
-    const { getByPlaceholderText } = render(<SearchInputField placeholder="Test" />)
+    const { getByPlaceholderText } = render(<SearchInputField placeholder="Test" />);
 
-    getByPlaceholderText("Test")
+    getByPlaceholderText("Test");
 });

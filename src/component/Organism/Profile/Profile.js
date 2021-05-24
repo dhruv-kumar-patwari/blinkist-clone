@@ -1,6 +1,6 @@
-import { useAuth0 } from "@auth0/auth0-react"
+import { useAuth0 } from "@auth0/auth0-react";
 import React from 'react';
-import NoSsr from '@material-ui/core/NoSsr'
+import NoSsr from '@material-ui/core/NoSsr';
 import Avatar from '@material-ui/core/Avatar';
 import ButtonItem from '../../molecule/Button/Button';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -50,7 +50,7 @@ const Profile=()=>{
             </NoSsr>
         </div>
     )
-    )
-}
+    );
+};
 
-export default Profile
+export default Profile;

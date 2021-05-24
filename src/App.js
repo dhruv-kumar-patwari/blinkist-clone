@@ -1,6 +1,6 @@
 import React from 'react';
-import Page from './component/page/Page'
-import { theme } from './Theme/Theme'
+import Page from './component/page/Page';
+import { theme } from './Theme/Theme';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Auth0Provider } from '@auth0/auth0-react';

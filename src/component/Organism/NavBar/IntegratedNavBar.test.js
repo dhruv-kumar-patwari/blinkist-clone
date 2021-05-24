@@ -1,13 +1,14 @@
-import React from 'react'
-import IntegratedNavBar from './IntegratedNavBar'
-import {render, screen, fireEvent, waitFor} from '@testing-library/react'
-import '@testing-library/jest-dom'
+import React from 'react';
+import IntegratedNavBar from './IntegratedNavBar';
+import {render, screen, fireEvent, waitFor} from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import Context from '../../../util/context';
 
 jest.mock("@auth0/auth0-react");
 
-const mockLib = jest.fn()
-const mockSetSearchTerm = jest.fn()
+const mockLib = jest.fn();
+const mockSetSearchResult = jest.fn();
 
 const bookList = [
     {
@@ -40,7 +41,7 @@ const bookList = [
         bookDuration: "20",
         isFinished: false
     },
-]
+];
 
 const dropDownText = [
     {
@@ -67,57 +68,39 @@ const dropDownText = [
         "id": 6,
         "name": "Marketing & Sales"
     }
-]
+];
 
+const args = {
+    categories: dropDownText,
+    bookList: bookList,
+    searchTerm: "",
+    setSearchTerm: mockLib,
+    setSearchResult: mockSetSearchResult,
+};
 
-it("Clicking on search button displays the search bar", async () => {
-    useAuth0.mockReturnValue({
-        isAuthenticated: false,
-        loginWithRedirect: mockLib,
-    })
-    render(<IntegratedNavBar 
-            listItems={dropDownText} 
-            linkTo = {["/"]}
-            menuItems = {["My Library"]}
-            toggleSearchBar= {false}
-            bookList={bookList}
-            searchTerm=""
-            setSearchResult= {mockSetSearchTerm}
-            setSearchTerm= {mockLib}
-            setFilterTerm= {mockLib}
-        />)
-
-    expect(mockLib).toHaveBeenCalledTimes(1)
-
-    screen.getByText("Explore")
-
-    fireEvent.click(screen.getByTestId("searchButton"))
-    
-    screen.getByPlaceholderText("Search by Author or Title")
-})
+function renderNavBar(args) {
+    return render(
+        <Context.Provider value={args}>
+            <IntegratedNavBar 
+                linkTo = {["/"]}
+                menuItems = {["My Library"]}
+                toggleSearchBar= {false}
+                setFilterTerm= {mockLib}
+            />
+        </Context.Provider>
+    );
+}
 
 it("Clicking on search button displays the search bar", async () => {
     useAuth0.mockReturnValue({
         isAuthenticated: false,
         loginWithRedirect: mockLib,
-    })
-    render(<IntegratedNavBar 
-            listItems={dropDownText} 
-            linkTo = {["/"]}
-            menuItems = {["My Library"]}
-            toggleSearchBar= {false}
-            bookList={bookList}
-            searchTerm=""
-            setSearchResult= {mockSetSearchTerm}
-            setSearchTerm= {mockLib}
-            setFilterTerm= {mockLib}
-        />)
+    });
+    renderNavBar(args);
 
-    fireEvent.click(screen.getByTestId("searchButton"))
+    screen.getByText("Explore");
+
+    fireEvent.click(screen.getByTestId("searchButton"));
     
-    fireEvent.change(screen.getByPlaceholderText("Search by Author or Title"), {target: {value: "test"}})
-
-    expect(screen.getByPlaceholderText("Search by Author or Title")).toHaveValue("test")
-
-    await waitFor(() => expect(mockSetSearchTerm).toHaveBeenCalledWith(`[{"bookAuthor": "Gorge Orwell", "bookDuration": "20", "bookTitle": "Test", "isFinished": false}]`))
-})
+    screen.getByPlaceholderText("Search by Author or Title");
+});

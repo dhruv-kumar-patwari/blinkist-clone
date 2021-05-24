@@ -1,19 +1,20 @@
-import { useState, useContext } from 'react'
+import { useState, useContext } from 'react';
 import Context from '../../../util/context';
-import NavBar from './NavBar'
-import NavBarWithSearch from './NavBarWithSearch'
-import './NavBar.css'
+import NavBar from './NavBar';
+import NavBarWithSearch from './NavBarWithSearch';
+import './NavBar.css';
 
 const IntegratedNavBar = ({toggleSearchBar, ...props}) => {
 
     const { setSearchTerm } = useContext(Context);
+    
 
-    const [showSearchBar, setShowSearchBar] = useState(false)
+    const [showSearchBar, setShowSearchBar] = useState(false);
 
     const handleChange = () => {
-        setShowSearchBar(!showSearchBar)
-        setSearchTerm("")
-    }
+        setShowSearchBar(!showSearchBar);
+        setSearchTerm("");
+    };
 
     return (
         <div>
@@ -26,7 +27,7 @@ const IntegratedNavBar = ({toggleSearchBar, ...props}) => {
                 />            
             }
         </div>
-    )
-}
+    );
+};
 
-export default IntegratedNavBar
+export default IntegratedNavBar;

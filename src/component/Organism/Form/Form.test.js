@@ -2,6 +2,8 @@ import React from 'react'
 import Form, {util} from './Form'
 import {render, screen, fireEvent, within, waitFor} from '@testing-library/react'
 import '@testing-library/jest-dom'
+import Context from '../../../util/context';
+
 
 const mockLib = jest.fn()
 
@@ -32,18 +34,29 @@ const menuItemsList= [
     }
 ]
 
+const args = {
+    categories: menuItemsList
+};
+
+function renderForm(args) {
+    return render(
+        <Context.Provider value={args}>
+            <Form category= {{id: 2}} 
+                    setBookTitle={mockLib} 
+                    setBookAuthor={mockLib} 
+                    setBookDuration={mockLib} 
+                    fetchCategory = {mockLib}
+                    setCategory={mockLib}
+                    bookTitle="title book"
+                    bookAuthor="book author name"
+                    bookDuration={20}
+                />
+        </Context.Provider>
+    );
+}
+
 it("Enter values in form changes form state", async () => {
-    render(<Form menuItemsList={menuItemsList} 
-        category= {{id: 2}} 
-        setBookTitle={mockLib} 
-        setBookAuthor={mockLib} 
-        setBookDuration={mockLib} 
-        fetchCategory = {mockLib}
-        setCategory={mockLib}
-        bookTitle="title book"
-        bookAuthor="book author name"
-        bookDuration={20}
-    />)
+    renderForm(args);
 
     screen.getByDisplayValue('title book')
     screen.getByDisplayValue('book author name')

@@ -393,6 +393,17 @@
       },
       "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
       "id": 37
+    },
+    {
+      "bookTitle": "test cat",
+      "bookAuthor": "cat",
+      "bookDuration": "10",
+      "category": {
+        "id": 3,
+        "name": "Economics"
+      },
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 38
     }
   ],
   "myLibrary": [
@@ -425,34 +436,6 @@
       "isFinished": true
     },
     {
-      "id": 21,
-      "isFinished": false
-    },
-    {
-      "id": 28,
-      "isFinished": true
-    },
-    {
-      "id": 18,
-      "isFinished": false
-    },
-    {
-      "id": 5,
-      "isFinished": false
-    },
-    {
-      "id": 12,
-      "isFinished": true
-    },
-    {
-      "id": 29,
-      "isFinished": true
-    },
-    {
-      "id": 30,
-      "isFinished": true
-    },
-    {
       "id": 13,
       "isFinished": true
     },
@@ -466,7 +449,7 @@
     },
     {
       "id": 16,
-      "isFinished": true
+      "isFinished": false
     },
     {
       "id": 15,
@@ -474,30 +457,18 @@
     },
     {
       "id": 32,
-      "isFinished": true
-    },
-    {
-      "id": 17,
-      "isFinished": true
-    },
-    {
-      "id": 4,
       "isFinished": false
     },
     {
-      "id": 22,
+      "id": 33,
       "isFinished": true
     },
     {
-      "id": 23,
+      "id": 34,
       "isFinished": true
     },
     {
-      "id": 35,
-      "isFinished": true
-    },
-    {
-      "id": 36,
+      "id": 18,
       "isFinished": false
     }
   ]

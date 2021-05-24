@@ -3,6 +3,7 @@ import NavBar from './NavBar'
 import {render, screen, fireEvent} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { useAuth0 } from '@auth0/auth0-react';
+import Context from '../../../util/context'
 
 jest.mock("@auth0/auth0-react");
 
@@ -36,19 +37,31 @@ const dropDownText = [
     }
 ]
 
+const args = {
+    categories: dropDownText
+};
+
+function renderNavBar(args) {
+    return render(
+        <Context.Provider value={args}>
+            <NavBar 
+                linkTo = {["/"]}
+                menuItems = {["My Library"]}
+                setSearchResult= {mockLib}
+                setSearchTerm= {mockLib}
+                setFilterTerm= {mockLib}
+            />
+        </Context.Provider>
+    );
+}
+
+
 it("Navbar should render with small logo", () => {
     useAuth0.mockReturnValue({
         isAuthenticated: false,
         loginWithRedirect: jest.fn()
     })
-    render(<NavBar 
-            listItems={dropDownText} 
-            linkTo = {["/"]}
-            menuItems = {["My Library"]}
-            setSearchResult= {mockLib}
-            setSearchTerm= {mockLib}
-            setFilterTerm= {mockLib}
-        />)
+    renderNavBar(args);
 
     global.window.innerWidth = 300;
     global.window.dispatchEvent(new Event('resize'));
@@ -61,14 +74,7 @@ it("Navbar should render with large logo", () => {
         isAuthenticated: false,
         loginWithRedirect: jest.fn()
     })
-    render(<NavBar 
-            listItems={dropDownText} 
-            linkTo = {["/"]}
-            menuItems = {["My Library"]}
-            setSearchResult= {mockLib}
-            setSearchTerm= {mockLib}
-            setFilterTerm= {mockLib}
-        />)
+    renderNavBar(args);
 
     global.window.innerWidth = 1024;
     global.window.dispatchEvent(new Event('resize'));
@@ -81,14 +87,7 @@ it("Navbar should render with login button initially", () => {
         isAuthenticated: false,
         loginWithRedirect: mockLib
     })
-    render(<NavBar 
-            listItems={dropDownText} 
-            linkTo = {["/"]}
-            menuItems = {["My Library"]}
-            setSearchResult= {mockLib}
-            setSearchTerm= {mockLib}
-            setFilterTerm= {mockLib}
-        />)
+    renderNavBar(args);
     screen.getByText("Login")
     expect(mockLib).toHaveBeenCalledTimes(0)
 
@@ -105,14 +104,7 @@ it("Navbar should render with logout if authenticated", async () => {
             picture: "https://www.richardkotze.com/images/github-profile.jpeg"
         }
     })
-    render(<NavBar 
-            listItems={dropDownText} 
-            linkTo = {["/"]}
-            menuItems = {["My Library"]}
-            setSearchResult= {mockLib}
-            setSearchTerm= {mockLib}
-            setFilterTerm= {mockLib}
-        />)
+    renderNavBar(args);
     screen.getByAltText("Dhruv")
 })
 
@@ -126,14 +118,7 @@ it("Clicking on the image displayed the logout button", async () => {
         },
         logout: mockLib,
     })
-    render(<NavBar 
-            listItems={dropDownText} 
-            linkTo = {["/"]}
-            menuItems = {["My Library"]}
-            setSearchResult= {mockLib}
-            setSearchTerm= {mockLib}
-            setFilterTerm= {mockLib}
-        />)
+    renderNavBar(args);
 
     fireEvent.click(screen.getByAltText("Dhruv"))
     expect(screen.getByRole("presentation")).toHaveStyle("visibility: visible")
@@ -154,14 +139,7 @@ it("Clicking on My Library calls setFilterTerm", async () => {
         },
         logout: mockLib,
     })
-    render(<NavBar 
-            listItems={dropDownText} 
-            linkTo = {["/"]}
-            menuItems = {["My Library"]}
-            setSearchResult= {mockLib}
-            setSearchTerm= {mockLib}
-            setFilterTerm= {mockLib}
-        />)
+    renderNavBar(args);
 
     expect(mockLib).toHaveBeenCalledTimes(0)
 

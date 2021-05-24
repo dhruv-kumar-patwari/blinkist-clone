@@ -1,10 +1,10 @@
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket, faFlask, faRupeeSign, 
         faLandmark, faFirstAid, faPiggyBank, 
         faChartLine, faComments, faMonument, 
-        faLightbulb, faBrain, faMicrochip } from '@fortawesome/free-solid-svg-icons'
+        faLightbulb, faBrain, faMicrochip } from '@fortawesome/free-solid-svg-icons';
 
 const icons = {
     "open": {
@@ -58,6 +58,6 @@ const icons = {
     "Philosophy":{
         src: <FontAwesomeIcon icon={faBrain} />
     }
-}
+};
 
 export default icons;

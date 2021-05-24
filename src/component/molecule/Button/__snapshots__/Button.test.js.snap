@@ -55,7 +55,6 @@ exports[`Snapshot for down arrow 1`] = `
     data-testid="icon-button"
     endiconneeded="more"
     role="button"
-    style="padding-right: 2rem;"
     tabindex="0"
     type="button"
   >
@@ -118,7 +117,6 @@ exports[`Snapshot for up arrow 1`] = `
     data-testid="icon-button"
     endiconneeded="more"
     role="button"
-    style="padding-right: 2rem;"
     tabindex="0"
     type="button"
   >

@@ -11,7 +11,7 @@ const useSearch = (bookList) => {
                                 .join(" ")
                                 .toLowerCase()
                                 .includes(searchTerm.toLowerCase());
-            })
+            });
 
             setSearchResult(filteredBooks);
         }

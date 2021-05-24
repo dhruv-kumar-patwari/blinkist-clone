@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import Context from '../../../util/context';
 import { Typography } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import './Form.css'
+import './Form.css';
 
 
 const FormSelectField = (props) => {
@@ -25,7 +25,7 @@ const FormSelectField = (props) => {
                 {categories.map((listItem, index) => (<MenuItem key={index} value={listItem.id}>{listItem.name}</MenuItem>))}
             </Select>
         </div>
-    )
-}
+    );
+};
 
-export default FormSelectField
+export default FormSelectField;

@@ -1,22 +1,23 @@
 import Button from '@material-ui/core/Button';
-import big from '../../../assets/logo/big.svg'
-import small from '../../../assets/logo/small.svg'
-import icons from '../../../assets/icons'
+import big from '../../../assets/logo/big.svg';
+import small from '../../../assets/logo/small.svg';
+import icons from '../../../assets/icons';
 import PropTypes from 'prop-types';
 
 
 const ButtonItem = (props) => {
     return (props.endIconNeeded? 
-                <Button data-testid="icon-button" aria-label={props.children} role="button" endIcon = {ifOpenRenderUpArrowElseDownArrow(props)} style={{paddingRight: "2rem"}} {...props} >
+                <Button data-testid="icon-button" aria-label={props.children} role="button" 
+                    endIcon = {ifOpenRenderUpArrowElseDownArrow(props)} {...props} >
                     {props.children}
                 </Button> : 
                 <Button role="button" {...props} style={{justifyContent:"center"}}>
                     {renderButtonWithLogoOrText(props)}
                 </Button>
-    )            
-}
+    );       
+};
 
-export default ButtonItem
+export default ButtonItem;
 
 
 function ifOpenRenderUpArrowElseDownArrow(props) {

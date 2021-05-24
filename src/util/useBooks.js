@@ -9,17 +9,17 @@ const useBooks = () => {
         const getBooks = async () => {
             const booksFromServer =  await fetchBooks();
             setBookList(booksFromServer);
-        }
+        };
         
         const getCategories = async () => {
             const categoriesFromServer =  await fetchCategories();
             setCategories(categoriesFromServer);
-        }
+        };
 
         const getLibraryBooks = async () => {
             const booksFromServer =  await fetchLibraryBooks();
             setLibraryBooks(booksFromServer);
-        }
+        };
 
         getBooks();
         getCategories();

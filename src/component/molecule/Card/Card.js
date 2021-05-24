@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import ButtonItem from '../Button/Button'
-import Typography from '@material-ui/core/Typography'
+import ButtonItem from '../Button/Button';
+import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
-import './Card.css'
+import './Card.css';
 
 const BookCard = (props) => {
     return (
@@ -46,16 +46,17 @@ const BookCard = (props) => {
                 }
             </CardActions>
     </Card>
-    )
-}
+    );
+};
 
 BookCard.defaultProps = {
     bookTitle: "Animal Farm",
     bookAuthor: "Gorge Orwell",
     bookDuration: "20"
-}
+};
 
-export default BookCard
+export default BookCard;
+
 function changeButtonBasedOnReadStatus(props) {
     return props.isFinished ?
         <ButtonItem 

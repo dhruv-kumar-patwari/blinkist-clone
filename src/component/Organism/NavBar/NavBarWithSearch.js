@@ -1,11 +1,11 @@
-import {React, useState, useEffect, useContext} from 'react'
+import {React, useState, useEffect, useContext} from 'react';
 import Context from '../../../util/context';
 import ButtonItem from '../../molecule/Button/Button';
 import SearchIcon from '@material-ui/icons/Search';
-import SearchInputField from '../../atom/InputFields/SearchInputField'
-import './NavBar.css'
+import SearchInputField from '../../atom/InputFields/SearchInputField';
+import './NavBar.css';
 import { useAuth0 } from '@auth0/auth0-react';
-import Profile from "../Profile/Profile"
+import Profile from "../Profile/Profile";
 
 
 const NavBarWithSearch = (props) => {
@@ -21,8 +21,8 @@ const NavBarWithSearch = (props) => {
     }, []);
 
     const handleSearch = (e) => {
-        setSearchTerm(e.target.value)
-    }
+        setSearchTerm(e.target.value);
+    };
     
     return (
         <div className="NavBar">
@@ -45,7 +45,7 @@ const NavBarWithSearch = (props) => {
                 : <Profile />
             }
         </div>
-    )
-}
+    );
+};
 
-export default NavBarWithSearch
+export default NavBarWithSearch;

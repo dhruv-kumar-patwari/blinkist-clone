@@ -1,20 +1,20 @@
-import React from 'react'
+import React from 'react';
 
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import icons from '../../../assets/icons'
+import icons from '../../../assets/icons';
 
 
 const addIcon = (name) => {
     try  { 
-        return icons[name].src
+        return icons[name].src;
     }
     catch (e) {
-        return icons["Test"].src
+        return icons["Test"].src;
     }
-}
+};
 
 const MenuListItem = ({listItems, ...props}) => {
     return (
@@ -31,7 +31,7 @@ const MenuListItem = ({listItems, ...props}) => {
                 </MenuItem>
             </Grid>
         ))
-    )
-}
+    );
+};
 
-export default MenuListItem
+export default MenuListItem;

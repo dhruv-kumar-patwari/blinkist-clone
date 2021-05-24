@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import "@fontsource/raleway"
+import "@fontsource/raleway";
 
 export const primaryColor = "#032356";
 export const secondaryColor = "#6d787e";

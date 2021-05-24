@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import Context from '../../../util/context';
-import ButtonItem from '../../molecule/Button/Button'
+import ButtonItem from '../../molecule/Button/Button';
 import Menu from '@material-ui/core/Menu';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import MenuListItem from '../../molecule/MenuItem/MenuItem'
+import MenuListItem from '../../molecule/MenuItem/MenuItem';
 
 const DropDownMenu = (props) => {
 
@@ -21,12 +21,12 @@ const DropDownMenu = (props) => {
     };
 
     const handleExplore = (listItem) => {
-        props.findBooksByCategory(listItem.id)
-        props.setFilterTerm(listItem.name)
+        props.findBooksByCategory(listItem.id);
+        props.setFilterTerm(listItem.name);
         setAnchorEl(null);
     };
 
-    const {children,  ...others} = props
+    const {children,  ...others} = props;
 
     return (
         <div>
@@ -63,7 +63,7 @@ const DropDownMenu = (props) => {
                 </Container>
             </Menu>
         </div>
-    )
-}
+    );
+};
 
-export default DropDownMenu
+export default DropDownMenu;

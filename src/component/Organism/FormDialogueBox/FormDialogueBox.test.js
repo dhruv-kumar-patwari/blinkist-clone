@@ -2,6 +2,8 @@ import React from 'react';
 import FormDialogueBox, {util} from './FormDialogueBox';
 import {render, screen, fireEvent, waitForElementToBeRemoved, within,  waitFor, getByTestId} from '@testing-library/react';
 import '@testing-library/jest-dom';
+import Context from '../../../util/context';
+
 
 const mockLib = jest.fn();
 
@@ -32,27 +34,34 @@ const menuItemsList= [
     }
 ];
 
+const args = {
+    categories: menuItemsList
+};
+
+function renderFormDialogueBox(args) {
+    return render(
+        <Context.Provider value={args}>
+            <FormDialogueBox fetchCategory={mockLib.mockReturnValue("Politics")}
+            />
+        </Context.Provider>
+    );
+}
+
 it("Add book button is rendered initially", () => {
-    render(<FormDialogueBox menuItemsList={menuItemsList} 
-        fetchCategory={mockLib}
-    />);
+    renderFormDialogueBox(args);
 
     screen.getByRole("button", {name: "Add Book"});
 });
 
 it("Dialog box opens if add book button is clicked", () => {
-    render(<FormDialogueBox menuItemsList={menuItemsList} 
-        fetchCategory={mockLib}
-    />);
+    renderFormDialogueBox(args);
 
     fireEvent.click(screen.getByRole("button", {name: "Add Book"}));
     screen.getByRole("dialog");
 });
 
 it("Change value in the text field is reflected on screen", () => {
-    render(<FormDialogueBox menuItemsList={menuItemsList} 
-        fetchCategory={mockLib}
-    />);
+    renderFormDialogueBox(args);
 
     fireEvent.click(screen.getByRole("button", {name: "Add Book"}));
 
@@ -76,9 +85,7 @@ it("Change value in the text field is reflected on screen", () => {
 });
 
 it("Pressing the close button closes the dialog box", async () => {
-    render(<FormDialogueBox menuItemsList={menuItemsList} 
-        fetchCategory={mockLib}
-    />);
+    renderFormDialogueBox(args);
 
     fireEvent.click(screen.getByRole("button", {name: "Add Book"}));
     screen.getByRole("dialog");
@@ -90,9 +97,7 @@ it("Pressing the close button closes the dialog box", async () => {
 });
 
 it("If add book clicked on an empty form, an alert is thrown", async () => {
-    render(<FormDialogueBox menuItemsList={menuItemsList} 
-        fetchCategory={mockLib}
-    />);
+    renderFormDialogueBox(args);
 
     fireEvent.click(screen.getByRole("button", {name: "Add Book"}));
 
@@ -110,9 +115,7 @@ it("If add book clicked on an empty form, an alert is thrown", async () => {
 });
 
 it("If add book clicked after adding all fields then book is added to library", async () => {
-    const component = render(<FormDialogueBox menuItemsList={menuItemsList} 
-        fetchCategory={mockLib.mockReturnValue("Politics")}
-    />);
+    renderFormDialogueBox(args);
 
     fireEvent.click(screen.getByRole("button", {name: "Add Book"}));
 

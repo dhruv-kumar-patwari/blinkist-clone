@@ -5,6 +5,32 @@ import { React, useState, useEffect, useContext } from 'react';
 import CardGrid from '../molecule/CardGrid/CardGrid';
 import Context from '../../util/context';
 
+export const fetchLibraryBook = async (id) => {
+    const data = fetch(`http://localhost:5000/myLibrary/${id}`).then(response.json());
+    
+    return data;
+};
+
+export const fetchBook = async (id) => {
+    const res = await fetch(`http://localhost:5000/allBooks/${id}`);
+    const data = await res.json();
+
+    return data;
+};
+
+export const fetchCategory = async (id) => {
+    const res = await fetch(`http://localhost:5000/category/${id}`);
+    const data = await res.json();
+    return data.name;
+};
+
+export const util = {
+    addToLibrary: null,
+    changeReadStatus: null,
+    findBooksByCategory: null,
+    isInLibrary: null
+};
+
 const isFinished = (x) => {
     return x.isFinished;
 };
@@ -36,14 +62,7 @@ function Page() {
         setFinished(libraryBooks.filter(isFinished));
     }, [libraryBooks]);
 
-    const fetchLibraryBook = async (id) => {
-        const response = await fetch(`http://localhost:5000/myLibrary/${id}`);
-        const data = await response.json();
-        
-        return data;
-    };
-
-    const isInLibrary = (id) => {
+    util.isInLibrary = (id) => {
         for (const book of libraryBooks){
             if (book.id === id){
                 return true;
@@ -52,19 +71,7 @@ function Page() {
         return false;
     };
 
-    const fetchBook = async (id) => {
-        const res = await fetch(`http://localhost:5000/allBooks/${id}`);
-        const data = await res.json();
-
-        return data;
-    };
-    const fetchCategory = async (id) => {
-        const res = await fetch(`http://localhost:5000/category/${id}`);
-        const data = await res.json();
-        return data.name;
-    };
-
-    const addToLibrary = async (e, id) => {
+    util.addToLibrary = async (e, id) => {
         const bookToAdd = { id: id, isFinished: false };
 
         const res = await fetch(`http://localhost:5000/myLibrary`, {
@@ -80,20 +87,9 @@ function Page() {
         updatedData = { ...updatedData, isFinished: false };
 
         setLibraryBooks([...libraryBooks, updatedData]);
-
-        const bookStatusUpdate = (book) => {
-            return book.id === id
-            ? {...book, isFinished : updatedData.isFinished} 
-            : book ;
-        };
-        
-        setFilteredBookList(
-        filteredBookList.map((book) => bookStatusUpdate(book)));
-
-        setSearchResult(searchResult.map((book) => bookStatusUpdate(book)));
     };
 
-    const changeReadStatus = async (e, data) => {
+    util.changeReadStatus = async (e, data) => {
 
         const bookToToggle = await fetchLibraryBook(data);
         const updatedBook = { ...bookToToggle, isFinished: !bookToToggle.isFinished };
@@ -113,6 +109,7 @@ function Page() {
             ? {...book, isFinished : updatedData.isFinished} 
             : book ;
         };
+
         setLibraryBooks(
             libraryBooks.map((book) => bookStatusUpdate(book)));
         
@@ -123,7 +120,7 @@ function Page() {
         searchResult.map((book) => bookStatusUpdate(book)));
     };
     
-    const findBooksByCategory = (data) => {
+    util.findBooksByCategory = (data) => {
         const filteredList = bookList.filter((book) => (book.category.id === data));
         setFilteredBookList(filteredList);
     };
@@ -134,14 +131,14 @@ function Page() {
         <IntegratedNavBar menuItems = {["My Library"]}
                         linkTo={["/"]}
                         fetchCategory={fetchCategory}
-                        findBooksByCategory={findBooksByCategory}
+                        findBooksByCategory={util.findBooksByCategory}
                         setFilterTerm={setFilterTerm}
                         />
         </Container>
         <Container maxWidth="md">
                 {searchTerm ? <>
                     <Typography variant="h4"><strong>{renderTextDependingOnSearchResultLength()}</strong></Typography> 
-                    <CardGrid addToLibrary={addToLibrary} isInLibrary={isInLibrary} onClick={changeReadStatus} /></> :
+                    <CardGrid bookList={searchResult} addToLibrary={util.addToLibrary} isInLibrary={util.isInLibrary} onClick={util.changeReadStatus} /></> :
                     (renderFilterComponentsElseRenderMyLibrary())
                 
                 }
@@ -154,16 +151,16 @@ function Page() {
         return filterTerm ?
             <>
                 <Typography variant="h4"><strong>{filterTerm}</strong></Typography>
-                <CardGrid addToLibrary={addToLibrary} bookList={filteredBookList} isInLibrary={isInLibrary} onClick={changeReadStatus} />
+                <CardGrid addToLibrary={util.addToLibrary} bookList={filteredBookList} isInLibrary={util.isInLibrary} onClick={util.changeReadStatus} />
             </> :
             <>
                 <Typography variant="h4"><strong>My Library</strong></Typography>
                 <CardsInTabs
-                    changeReadStatus={changeReadStatus}
+                    changeReadStatus={util.changeReadStatus}
                     finished={finished}
                     unFinished={unFinished}
-                    isInLibrary={isInLibrary}
-                    addToLibrary={addToLibrary}
+                    isInLibrary={util.isInLibrary}
+                    addToLibrary={util.addToLibrary}
                     style={{ background: "rgba(58,70,73,.7)" }} />
             </>;
     }

@@ -2,8 +2,9 @@ import React from 'react'
 import DropDownMenu from './DropDownMenu'
 import {render, screen, fireEvent, waitFor} from '@testing-library/react'
 import '@testing-library/jest-dom'
+import Context from '../../../util/context';
 
-const mockLib = jest.fn()
+const mockLib = jest.fn();
 
 const listItems= [
     {
@@ -32,8 +33,21 @@ const listItems= [
     }
 ]
 
+const args = {
+    categories: listItems
+};
+
+function renderDropDown(args) {
+    return render(
+        <Context.Provider value={args}>
+            <DropDownMenu children="Test Drop Down" 
+                findBooksByCategory={mockLib} setFilterTerm={mockLib} />
+        </Context.Provider>
+    );
+}
+
 it('Dropdown menu appears if clicked on the button and disappears when clicked on button again', async () => {
-    render(<DropDownMenu listItems={listItems} children="Test Drop Down" />)
+    renderDropDown(args);
 
     expect(screen.getByRole("button").textContent).toBe("Test Drop Down")
     expect(screen.getByRole("presentation", {hidden:true})).toHaveStyle("visibility: hidden")
@@ -56,8 +70,8 @@ it('Dropdown menu appears if clicked on the button and disappears when clicked o
 });
 
 it("Click on menu will fire an event and close the dropdown", async () => {
-    render(<DropDownMenu listItems={listItems} children="Test Drop Down" 
-            findBooksByCategory={mockLib} setFilterTerm={mockLib} />)
+    renderDropDown(args);
+
     fireEvent.click(screen.getByRole("button"))
 
     fireEvent.click(screen.getByText("Entrepreneurship"))
@@ -65,4 +79,4 @@ it("Click on menu will fire an event and close the dropdown", async () => {
     expect(mockLib).toHaveBeenCalledWith("Entrepreneurship")
     expect(mockLib).toHaveBeenCalledWith(1)
     await waitFor(() => expect(screen.getByRole("presentation", {hidden:true})).toHaveStyle("visibility: hidden"))
-})
+});

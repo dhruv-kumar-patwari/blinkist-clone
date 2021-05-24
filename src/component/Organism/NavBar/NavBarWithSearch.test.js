@@ -3,38 +3,25 @@ import NavBarWithSearch from './NavBarWithSearch'
 import {render, screen, fireEvent} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { useAuth0 } from '@auth0/auth0-react';
+import Context from '../../../util/context';
 
 jest.mock("@auth0/auth0-react");
 
 const mockLib = jest.fn()
 
+const args = {
+    setSearchTerm: mockLib
+};
 
-const dropDownText = [
-    {
-        "id": 1,
-        "name": "Entrepreneurship"
-    },
-    {
-        "id": 2,
-        "name": "Science"
-    },
-    {
-        "id": 3,
-        "name": "Economics"
-    },
-    {
-        "id": 4,
-        "name": "Politics"
-    },
-    {
-        "id": 5,
-        "name": "History"
-    },
-    {
-        "id": 6,
-        "name": "Marketing & Sales"
-    }
-]
+function renderDropDown(args) {
+    return render(
+        <Context.Provider value={args}>
+            <DropDownMenu children="Test Drop Down" 
+                findBooksByCategory={mockLib} setFilterTerm={mockLib} />
+        </Context.Provider>
+    );
+}
+
 
 it("NavBarWithSearch should render with small logo", () => {
     useAuth0.mockReturnValue({
@@ -135,10 +122,12 @@ it("Clicking on cross or search button, the search bar should call on click cros
         isAuthenticated: false,
         loginWithRedirect: mockLib,
     })
-    render(<NavBarWithSearch onClickSearch={mockLib} placeholder="Search by Author or Title" setSearchTerm={mockLib} />)
+    render(<Context.Provider value={args}>
+                <NavBarWithSearch onClickSearch={mockLib} placeholder="Search by Author or Title" />
+            </Context.Provider>)
 
     fireEvent.change(screen.getByPlaceholderText("Search by Author or Title"), {target: { value: "Test search result" }})
 
 
-    expect(mockLib).toHaveBeenCalledWith("Test search result")
+    expect(mockLib).toHaveBeenCalledWith("Test search result");
 })

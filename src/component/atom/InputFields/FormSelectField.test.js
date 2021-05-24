@@ -1,8 +1,9 @@
-import React from 'react'
-import {render, cleanup} from '@testing-library/react'
-import FormSelectField from './FormSelectField'
+import React from 'react';
+import {render, cleanup} from '@testing-library/react';
+import FormSelectField from './FormSelectField';
+import Context from '../../../util/context';
 
-afterEach(cleanup)
+afterEach(cleanup);
 
 const menuItemsList = 
 [
@@ -22,23 +23,29 @@ const menuItemsList =
         id: 4,
         name: "Politics"
     },
-]
+];
 
-// it('should take a snapshot', () => {
-//     const { asFragment } = render(<FormSelectField menuItemsList={menuItemsList}  labelText="Test"/>)
+const args = {
+    categories: menuItemsList
+};
 
-//     expect(asFragment(<FormSelectField />)).toMatchSnapshot()
-// });
+function renderSelect(args, val) {
+    return render(
+        <Context.Provider value={args}>
+            <FormSelectField labelText="Test" value={val}/>
+        </Context.Provider>
+    );
+}
 
 it('Label should be equal to the passed value', () => {
-    const { getByText } = render(<FormSelectField menuItemsList={menuItemsList} labelText="Test" value={1}/>)
+    const { getByText } = renderSelect(args, 1);
 
-    getByText("Test")
-    getByText("Entrepreneurship")
+    getByText("Test");
+    getByText("Entrepreneurship");
 });
 
 it('Select should display the value picked from dropdown menu', () => {
-    const { getByText } = render(<FormSelectField menuItemsList={menuItemsList} labelText="Test" value={2}/>)
+    const { getByText } = renderSelect(args, 2);
 
-    getByText("Science")
+    getByText("Science");
 });

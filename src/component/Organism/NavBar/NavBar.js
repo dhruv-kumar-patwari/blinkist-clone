@@ -1,13 +1,13 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect} from 'react';
 import ButtonItem from '../../molecule/Button/Button';
 import SearchIcon from '@material-ui/icons/Search';
-import DropDownMenu from '../DropDownMenu/DropDownMenu'
-import List from '../../molecule/List/List'
-import './NavBar.css'
+import DropDownMenu from '../DropDownMenu/DropDownMenu';
+import List from '../../molecule/List/List';
+import './NavBar.css';
 import { useAuth0 } from '@auth0/auth0-react';
-import Profile from "../Profile/Profile"
+import Profile from "../Profile/Profile";
 
-import FormDialogueBox from '../FormDialogueBox/FormDialogueBox'
+import FormDialogueBox from '../FormDialogueBox/FormDialogueBox';
 
     
 const NavBar = (props) => {
@@ -23,8 +23,8 @@ const NavBar = (props) => {
     }, []);
 
     const handleRestore = () =>{
-        props.setFilterTerm("")
-    }
+        props.setFilterTerm("");
+    };
     return (
         <div className="NavBar">
             <div class="left">
@@ -49,7 +49,7 @@ const NavBar = (props) => {
                 : <Profile />
             }
         </div>
-    )
-}
+    );
+};
 
-export default NavBar
+export default NavBar;
