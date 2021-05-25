@@ -22,6 +22,7 @@ const FormSelectField = (props) => {
                 placeholder="category"
                 {...rest}
             >
+                <MenuItem key={-1} value={0} selected disabled>Select {labelText}</MenuItem>
                 {categories.map((listItem, index) => (<MenuItem key={index} value={listItem.id}>{listItem.name}</MenuItem>))}
             </Select>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import CardGrid from '../../molecule/CardGrid/CardGrid';
-import TabsList from '../../atom/Tabs/Tabs';
+import TabsList from '../../atom/Tabs/TabsList';
 import TabPanel from '../../atom/TabPanel/TabPanel';
 
 const CardsInTabs = (props) => {

@@ -5,7 +5,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import AddBookForm from '../Form/Form';
-import ButtonItem from '../../molecule/Button/Button';
+import ButtonItem from '../../molecule/Button/ButtonItem';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from "@material-ui/core/styles";
 import {primaryColor, secondaryColor, tertiaryColor } from '../../../Theme/Theme';
@@ -78,7 +78,7 @@ const FormDialogueBox = (props) => {
     };
 
     util.addBook = async (book) => {
-        updatedBook = {...book, img: "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg"};
+        const  updatedBook = {...book, img: "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg"};
         const res = await fetch(`http://localhost:5000/allBooks/`, {
             method:'POST',
             headers: {

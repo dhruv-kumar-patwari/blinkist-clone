@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import TabsList from './Tabs';
+import TabsList from './TabsList';
 
 
 it('Should print text passed as child prop', ()=> {

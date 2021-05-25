@@ -1,5 +1,5 @@
 import React from 'react';
-import CardsInTabs from './CardsInTabs'
+import CardsInTabs from './CardsInTabs';
 
 export default {
     title: "Organism/CardsInTabs",
@@ -12,9 +12,9 @@ export default {
             }
         }
     }
-}
+};
 
-const Template = args => (<CardsInTabs {...args} />)
+const Template = args => (<CardsInTabs {...args} />);
 
 const books = [
         {
@@ -41,14 +41,18 @@ const books = [
             bookDuration: "20",
             isFinished: false
         }
-    ]
+    ];
+
+
 const test = () => {
-    return true
-}
-export const Default = Template.bind({})
+    return Math.random() < 0.5;
+};
+
+
+export const Default = Template.bind({});
 Default.args = {
     unFinished: books,
     finished: books,
     isInLibrary: test
 
-}
+};

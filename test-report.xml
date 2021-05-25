@@ -1,112 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="/home/dhrkp/react/blinkist-clone/src/component/molecule/CardGrid/CardGrid.test.js">
-    <testCase name="Snapshot with default image and finished book" duration="941"/>
-    <testCase name="Click event works" duration="607"/>
+    <testCase name="Snapshot with default image and finished book" duration="1140"/>
+    <testCase name="Click event works" duration="650"/>
   </file>
   <file path="/home/dhrkp/react/blinkist-clone/src/component/Organism/NavBar/NavBarWithSearch.test.js">
-    <testCase name="NavBarWithSearch should render with small logo" duration="693"/>
-    <testCase name="NavBarWithSearch should render with large logo" duration="209"/>
-    <testCase name="NavBarWithSearch should render with login button initially" duration="206"/>
-    <testCase name="NavBarWithSearch should render with logout if authenticated" duration="283"/>
-    <testCase name="Clicking on the image displayed the logout button" duration="649"/>
-    <testCase name="Clicking on cross or search button, the search bar should call on click cross" duration="245"/>
-    <testCase name="Clicking on cross or search button, the search bar should call on click cross" duration="186"/>
-  </file>
-  <file path="/home/dhrkp/react/blinkist-clone/src/component/atom/InputFields/FormSelectField.test.js">
-    <testCase name="Label should be equal to the passed value" duration="491"/>
-    <testCase name="Select should display the value picked from dropdown menu" duration="147"/>
-  </file>
-  <file path="/home/dhrkp/react/blinkist-clone/src/component/Organism/NavBar/IntegratedNavBar.test.js">
-    <testCase name="Clicking on search button displays the search bar" duration="1632"/>
-  </file>
-  <file path="/home/dhrkp/react/blinkist-clone/src/component/atom/InputFields/FormInputFields.test.js">
-    <testCase name="Label should be equal to the passed value" duration="278"/>
-    <testCase name="Placeholder should be equal to the passed value" duration="95"/>
+    <testCase name="NavBarWithSearch should render with small logo" duration="696"/>
+    <testCase name="NavBarWithSearch should render with large logo" duration="206"/>
+    <testCase name="NavBarWithSearch should render with login button initially" duration="184"/>
+    <testCase name="NavBarWithSearch should render with logout if authenticated" duration="364"/>
+    <testCase name="Clicking on the image displayed the logout button" duration="682"/>
+    <testCase name="Clicking on cross or search button, the search bar should call on click cross" duration="219"/>
+    <testCase name="Clicking on cross or search button, the search bar should call on click cross" duration="159"/>
   </file>
   <file path="/home/dhrkp/react/blinkist-clone/src/component/Organism/Form/Form.test.js">
-    <testCase name="Enter values in form changes form state" duration="2000"/>
-  </file>
-  <file path="/home/dhrkp/react/blinkist-clone/src/component/Organism/NavBar/NavBar.test.js">
-    <testCase name="Navbar should render with small logo" duration="1386"/>
-    <testCase name="Navbar should render with large logo" duration="633"/>
-    <testCase name="Navbar should render with login button initially" duration="500"/>
-    <testCase name="Navbar should render with logout if authenticated" duration="549"/>
-    <testCase name="Clicking on the image displayed the logout button" duration="1214"/>
-    <testCase name="Clicking on My Library calls setFilterTerm" duration="413"/>
-  </file>
-  <file path="/home/dhrkp/react/blinkist-clone/src/component/page/Page.test.js">
-    <testCase name="Card in tabs is rendered" duration="1629"/>
-    <testCase name="setSearchTerm must be called if search term needs to be set" duration="1162"/>
-    <testCase name="If search term is non empty search result is displayed" duration="603"/>
-    <testCase name="If search result is empty Nothing found for xyz is displayed" duration="567"/>
-    <testCase name="Filter must be set" duration="1142"/>
-    <testCase name="isInLib returns false if not in lib and true id in lib" duration="4"/>
-    <testCase name="Add to library function adds book to libraryBooks" duration="36"/>
-    <testCase name="Change read status changes the status of each book" duration="13"/>
-  </file>
-  <file path="/home/dhrkp/react/blinkist-clone/src/component/molecule/MenuItem/MenuItem.test.js">
-    <testCase name="Snapshot menu list" duration="518"/>
-    <testCase name="Snapshot menu list with random names" duration="188"/>
+    <testCase name="Enter values in form changes form state" duration="1839"/>
   </file>
   <file path="/home/dhrkp/react/blinkist-clone/src/component/molecule/Card/Card.test.js">
-    <testCase name="Default card in library" duration="225"/>
-    <testCase name="Default card not in library" duration="151"/>
-    <testCase name="Default card in library finished reading" duration="129"/>
-    <testCase name="Snapshot with default image and finished book" duration="115"/>
-    <testCase name="Snapshot with passed image and unfinished book" duration="166"/>
-    <testCase name="Fire event button click changes status from Mark as finished to read again" duration="206"/>
-    <testCase name="Fire event button click changes status from Add to library to Mark as finished" duration="141"/>
-    <testCase name="Fire event button click changes status from Read Again to Mark as Finished" duration="137"/>
-  </file>
-  <file path="/home/dhrkp/react/blinkist-clone/src/component/Organism/CardsInTabs/CardsInTabs.test.js">
-    <testCase name="Switch tabs when clicked on a different tab" duration="551"/>
-  </file>
-  <file path="/home/dhrkp/react/blinkist-clone/src/component/atom/Tabs/Tabs.test.js">
-    <testCase name="Should print text passed as child prop" duration="264"/>
-    <testCase name="If value is 0 the first tab should be active" duration="438"/>
-    <testCase name="If value is 1 the second tab should be active" duration="273"/>
-  </file>
-  <file path="/home/dhrkp/react/blinkist-clone/src/component/molecule/List/List.test.js">
-    <testCase name="Snapshot horizontal list" duration="240"/>
-    <testCase name="Snapshot vertical list" duration="130"/>
+    <testCase name="Default card in library" duration="191"/>
+    <testCase name="Default card not in library" duration="142"/>
+    <testCase name="Default card in library finished reading" duration="123"/>
+    <testCase name="Snapshot with default image and finished book" duration="150"/>
+    <testCase name="Snapshot with passed image and unfinished book" duration="145"/>
+    <testCase name="Fire event button click changes status from Mark as finished to read again" duration="139"/>
+    <testCase name="Fire event button click changes status from Add to library to Mark as finished" duration="143"/>
+    <testCase name="Fire event button click changes status from Read Again to Mark as Finished" duration="127"/>
   </file>
   <file path="/home/dhrkp/react/blinkist-clone/src/component/molecule/Button/Button.test.js">
-    <testCase name="Button name should equal the children prop" duration="113"/>
-    <testCase name="Button must have attribute end icon if endIcon needed prop is passed" duration="172"/>
-    <testCase name="Button must have big logo if big is passed in props" duration="99"/>
-    <testCase name="Button must have small logo if small is passed in props" duration="61"/>
-    <testCase name="Snapshot for big logo" duration="92"/>
-    <testCase name="Snapshot for small logo" duration="83"/>
-    <testCase name="Snapshot for down arrow" duration="80"/>
-    <testCase name="Snapshot for up arrow" duration="76"/>
-    <testCase name="Normal button" duration="69"/>
+    <testCase name="Button name should equal the children prop" duration="189"/>
+    <testCase name="Button must have attribute end icon if endIcon needed prop is passed" duration="246"/>
+    <testCase name="Button must have big logo if big is passed in props" duration="97"/>
+    <testCase name="Button must have small logo if small is passed in props" duration="76"/>
+    <testCase name="Snapshot for big logo" duration="96"/>
+    <testCase name="Snapshot for small logo" duration="94"/>
+    <testCase name="Snapshot for down arrow" duration="83"/>
+    <testCase name="Snapshot for up arrow" duration="67"/>
+    <testCase name="Normal button" duration="53"/>
+  </file>
+  <file path="/home/dhrkp/react/blinkist-clone/src/component/Organism/NavBar/NavBar.test.js">
+    <testCase name="Navbar should render with small logo" duration="1424"/>
+    <testCase name="Navbar should render with large logo" duration="681"/>
+    <testCase name="Navbar should render with login button initially" duration="514"/>
+    <testCase name="Navbar should render with logout if authenticated" duration="513"/>
+    <testCase name="Clicking on the image displayed the logout button" duration="1079"/>
+    <testCase name="Clicking on My Library calls setFilterTerm" duration="469"/>
+  </file>
+  <file path="/home/dhrkp/react/blinkist-clone/src/component/Organism/NavBar/IntegratedNavBar.test.js">
+    <testCase name="Clicking on search button displays the search bar" duration="1336"/>
+  </file>
+  <file path="/home/dhrkp/react/blinkist-clone/src/component/page/Page.test.js">
+    <testCase name="Card in tabs is rendered" duration="1602"/>
+    <testCase name="setSearchTerm must be called if search term needs to be set" duration="933"/>
+    <testCase name="If search term is non empty search result is displayed" duration="722"/>
+    <testCase name="If search result is empty Nothing found for xyz is displayed" duration="520"/>
+    <testCase name="Filter must be set" duration="1188"/>
+    <testCase name="isInLib returns false if not in lib and true id in lib" duration="4"/>
+    <testCase name="Add to library function adds book to libraryBooks" duration="34"/>
+    <testCase name="Change read status changes the status of each book" duration="8"/>
+  </file>
+  <file path="/home/dhrkp/react/blinkist-clone/src/component/atom/Tabs/Tabs.test.js">
+    <testCase name="Should print text passed as child prop" duration="157"/>
+    <testCase name="If value is 0 the first tab should be active" duration="298"/>
+    <testCase name="If value is 1 the second tab should be active" duration="229"/>
+  </file>
+  <file path="/home/dhrkp/react/blinkist-clone/src/component/Organism/CardsInTabs/CardsInTabs.test.js">
+    <testCase name="Switch tabs when clicked on a different tab" duration="504"/>
+  </file>
+  <file path="/home/dhrkp/react/blinkist-clone/src/component/atom/InputFields/FormSelectField.test.js">
+    <testCase name="Label should be equal to the passed value" duration="212"/>
+    <testCase name="Select should display the value picked from dropdown menu" duration="119"/>
   </file>
   <file path="/home/dhrkp/react/blinkist-clone/src/util/useSearch.test.js">
-    <testCase name="useSearch when empty returns all books" duration="70"/>
-    <testCase name="useSearch when no matches returns all books" duration="10"/>
-    <testCase name="useSearch when matches returns only matching books" duration="8"/>
+    <testCase name="useSearch when empty returns all books" duration="67"/>
+    <testCase name="useSearch when no matches returns all books" duration="9"/>
+    <testCase name="useSearch when matches returns only matching books" duration="7"/>
   </file>
-  <file path="/home/dhrkp/react/blinkist-clone/src/component/atom/TabPanel/TabPanel.test.js">
-    <testCase name="Should print text passed as child prop" duration="42"/>
-    <testCase name="Should not print text passed as child prop if value and index are not same" duration="8"/>
+  <file path="/home/dhrkp/react/blinkist-clone/src/component/molecule/List/List.test.js">
+    <testCase name="Snapshot horizontal list" duration="224"/>
+    <testCase name="Snapshot vertical list" duration="137"/>
   </file>
-  <file path="/home/dhrkp/react/blinkist-clone/src/component/atom/InputFields/SearchInputField.test.js">
-    <testCase name="Placeholder should be equal to the passed value" duration="149"/>
-  </file>
-  <file path="/home/dhrkp/react/blinkist-clone/src/component/Organism/FormDialogueBox/FormDialogueBox.test.js">
-    <testCase name="Add book button is rendered initially" duration="673"/>
-    <testCase name="Dialog box opens if add book button is clicked" duration="1270"/>
-    <testCase name="Change value in the text field is reflected on screen" duration="2122"/>
-    <testCase name="Pressing the close button closes the dialog box" duration="1997"/>
-    <testCase name="If add book clicked on an empty form, an alert is thrown" duration="2640"/>
-    <testCase name="If add book clicked after adding all fields then book is added to library" duration="2079"/>
+  <file path="/home/dhrkp/react/blinkist-clone/src/component/molecule/MenuItem/MenuItem.test.js">
+    <testCase name="Snapshot menu list" duration="482"/>
+    <testCase name="Snapshot menu list with random names" duration="215"/>
   </file>
   <file path="/home/dhrkp/react/blinkist-clone/src/util/useBooks.test.js">
-    <testCase name="Use books reads form 3 different apis" duration="48"/>
+    <testCase name="Use books reads form 3 different apis" duration="110"/>
+  </file>
+  <file path="/home/dhrkp/react/blinkist-clone/src/component/atom/TabPanel/TabPanel.test.js">
+    <testCase name="Should print text passed as child prop" duration="57"/>
+    <testCase name="Should not print text passed as child prop if value and index are not same" duration="33"/>
+  </file>
+  <file path="/home/dhrkp/react/blinkist-clone/src/component/atom/InputFields/FormInputFields.test.js">
+    <testCase name="Label should be equal to the passed value" duration="126"/>
+    <testCase name="Placeholder should be equal to the passed value" duration="79"/>
+  </file>
+  <file path="/home/dhrkp/react/blinkist-clone/src/component/atom/InputFields/SearchInputField.test.js">
+    <testCase name="Placeholder should be equal to the passed value" duration="75"/>
+  </file>
+  <file path="/home/dhrkp/react/blinkist-clone/src/component/Organism/FormDialogueBox/FormDialogueBox.test.js">
+    <testCase name="Add book button is rendered initially" duration="657"/>
+    <testCase name="Dialog box opens if add book button is clicked" duration="1222"/>
+    <testCase name="Change value in the text field is reflected on screen" duration="1925"/>
+    <testCase name="Pressing the close button closes the dialog box" duration="2041"/>
+    <testCase name="If add book clicked on an empty form, an alert is thrown" duration="2519"/>
+    <testCase name="If add book clicked after adding all fields then book is added to library" duration="2334"/>
   </file>
   <file path="/home/dhrkp/react/blinkist-clone/src/component/Organism/DropDownMenu/DropDown.test.js">
-    <testCase name="Dropdown menu appears if clicked on the button and disappears when clicked on button again" duration="1811"/>
-    <testCase name="Click on menu will fire an event and close the dropdown" duration="220"/>
+    <testCase name="Dropdown menu appears if clicked on the button and disappears when clicked on button again" duration="1762"/>
+    <testCase name="Click on menu will fire an event and close the dropdown" duration="214"/>
   </file>
 </testExecutions>

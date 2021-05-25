@@ -1,14 +1,14 @@
 import React from 'react';
-import MenuListItem from './MenuItem'
+import MenuListItem from './MenuListItem';
 
 export default {
     title: "Molecule/MenuItem",
     component: MenuListItem,
-}
+};
 
-const Template = args => (<MenuListItem {...args} />)
+const Template = args => (<MenuListItem {...args} />);
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
     color: 'secondary',
     variant: "text",
@@ -39,4 +39,4 @@ Default.args = {
             "name": "Marketing & Sales"
         }
     ]
-}
+};

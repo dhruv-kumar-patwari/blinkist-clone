@@ -1,21 +1,16 @@
 export const fetchLibraryBook = async (id) => {
     const response = await fetch(`http://localhost:5000/myLibrary/${id}`);
-    const data = await response.json();
-    
-    return data;
+    return await response.json();
 };
 
 export const fetchBook = async (id) => {
     const res = await fetch(`http://localhost:5000/allBooks/${id}`);
-    const data = await res.json();
-
-    return data;
+    return  await res.json();
 };
 
 export const fetchCategory = async (id) => {
     const res = await fetch(`http://localhost:5000/category/${id}`);
-    const data = await res.json();
-    return data.name;
+    return await res.json();
 };
 
 export async function postBookToLibrary(id) {
@@ -29,8 +24,7 @@ export async function postBookToLibrary(id) {
         body: JSON.stringify(bookToAdd),
     });
 
-    const jsonData = await res.json();
-    return jsonData;
+    return await res.json();
 }
 
 export async function updateLibraryBook(data) {
@@ -45,14 +39,12 @@ export async function updateLibraryBook(data) {
         body: JSON.stringify(updatedBook),
     });
 
-    const updatedData = await res.json();
-    return updatedData;
+    return  await res.json(); 
 }
 
 export const fetchBooks = async () => {
     const response = await fetch('http://localhost:5000/allBooks');
-    const data = await response.json();
-    return data;
+    return await response.json(); 
 };
 
 export const fetchLibraryBooks = async () => {

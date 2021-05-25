@@ -1,7 +1,7 @@
-import React from 'react'
-import {render} from '@testing-library/react'
-import MenuListItem from './MenuItem'
-import '@testing-library/jest-dom'
+import React from 'react';
+import {render} from '@testing-library/react';
+import MenuListItem from './MenuListItem';
+import '@testing-library/jest-dom';
 
 const listItems= [
         {
@@ -28,7 +28,7 @@ const listItems= [
             "id": 6,
             "name": "Marketing & Sales"
         }
-    ]
+    ];
 
 const listItemsRandom= [
         {
@@ -39,16 +39,16 @@ const listItemsRandom= [
             "id": 2,
             "name": "Random name"
         }
-    ]
+    ];
 
 it('Snapshot menu list', () => {
-    const { asFragment } = render(<MenuListItem listItems={listItems} />)
+    const { asFragment } = render(<MenuListItem listItems={listItems} />);
 
-    expect(asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot();
 });
 
 it('Snapshot menu list with random names', () => {
-    const { asFragment } = render(<MenuListItem listItems={listItemsRandom} />)
+    const { asFragment } = render(<MenuListItem listItems={listItemsRandom} />);
 
-    expect(asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot();
 });

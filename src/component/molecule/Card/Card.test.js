@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, screen, fireEvent} from '@testing-library/react';
-import BookCard from './Card';
+import BookCard from './BookCard';
 import '@testing-library/jest-dom';
 
 const isInLibraryMock = jest.fn();

@@ -49,7 +49,7 @@ const searchResult = [
 
 it("useSearch when empty returns all books", async () => {
     
-    const {result} = renderHook(() => useSearch({bookList: books}));
+    const {result} = renderHook(() => useSearch({bookList: books, initialValue: ""}));
     expect(result.current.searchResult).toEqual(books);
 });
 

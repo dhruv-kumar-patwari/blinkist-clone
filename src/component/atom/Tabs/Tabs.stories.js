@@ -1,5 +1,5 @@
 import React from 'react';
-import TabsList from './Tabs';
+import TabsList from './TabsList';
 
 export default {
     title: "Atom/Tabs",
@@ -12,15 +12,15 @@ export default {
             }
         }
     }
-}
+};
 
-const Template = args=>(<TabsList {...args} />)
-
-
+const Template = args=>(<TabsList {...args} />);
 
 
-export const RecentReadList = Template.bind({})
+
+
+export const RecentReadList = Template.bind({});
 RecentReadList.args = {
     children: ["Currently Reading", "Finished"],
     value:0
-}
+};

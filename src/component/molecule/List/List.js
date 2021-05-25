@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonItem from '../Button/Button';
+import ButtonItem from '../Button/ButtonItem';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 const List = (props) => {

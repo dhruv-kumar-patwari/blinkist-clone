@@ -404,6 +404,20 @@
       },
       "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
       "id": 38
+    },
+    {
+      "bookTitle": "Soda",
+      "bookAuthor": "Coke",
+      "bookDuration": "12",
+      "category": {
+        "id": 8,
+        "name": {
+          "id": 8,
+          "name": "Test"
+        }
+      },
+      "img": "https://images.blinkist.com/images/books/602e66826cee070007cf21cc/1_1/470.jpg",
+      "id": 39
     }
   ],
   "myLibrary": [
@@ -421,7 +435,7 @@
     },
     {
       "id": 27,
-      "isFinished": true
+      "isFinished": false
     },
     {
       "id": 25,
@@ -457,11 +471,11 @@
     },
     {
       "id": 32,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 33,
-      "isFinished": false
+      "isFinished": true
     },
     {
       "id": 34,

@@ -1,50 +1,50 @@
 import React from 'react';
-import ButtonItem from './Button';
+import ButtonItem from './ButtonItem';
 
 export default {
     title: "Molecule/Button",
     component: ButtonItem
-}
+};
 
-const Template = args=>(<ButtonItem {...args} />)
+const Template = args=>(<ButtonItem {...args} />);
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 Primary.args = {
     variant: 'contained', 
     color: 'primary',
     children: "Test"
-}
+};
 
-export const Secondary = Template.bind({})
+export const Secondary = Template.bind({});
 Secondary.args = {
     variant: 'contained', 
     color: 'secondary',
     children: "Test"
-}
+};
 
-export const PrimaryLink = Template.bind({})
+export const PrimaryLink = Template.bind({});
 PrimaryLink.args = {
     color: 'primary',
     children: "Test",
     href: '#',
     variant: "text",
-}
+};
 
-export const SecondaryLink = Template.bind({})
+export const SecondaryLink = Template.bind({});
 SecondaryLink.args = {
     color: 'secondary',
     children: "Test",
     href: '#',
     variant: "text",
-}
+};
 
-export const LoadMore = Template.bind({})
+export const LoadMore = Template.bind({});
 LoadMore.args = {
     children: "Test",
     variant: "outlined",
-}
+};
 
-export const PrimaryLinkWithArrowIcon = Template.bind({})
+export const PrimaryLinkWithArrowIcon = Template.bind({});
 PrimaryLinkWithArrowIcon.args = {
     color: 'primary',
     children: "Test",
@@ -52,17 +52,17 @@ PrimaryLinkWithArrowIcon.args = {
     variant: "text",
     endIconNeeded: "more",
     isOpen: true
-}
+};
 
-export const fullWidthLogo = Template.bind({})
+export const fullWidthLogo = Template.bind({});
 fullWidthLogo.args = {
     size: 'large',
     logoSize: "big",
     href: '#',
-}
+};
 
-export const AbbrLogo = Template.bind({})
+export const AbbrLogo = Template.bind({});
 AbbrLogo.args = {
     logoSize: "small",
     href: '#',
-}
+};

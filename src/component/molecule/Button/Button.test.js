@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import ButtonItem from './Button';
+import ButtonItem from './ButtonItem';
 import '@testing-library/jest-dom';
 
 it('Button name should equal the children prop', () => {

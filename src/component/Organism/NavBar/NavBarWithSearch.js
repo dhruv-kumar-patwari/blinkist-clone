@@ -1,6 +1,6 @@
-import {React, useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import Context from '../../../util/context';
-import ButtonItem from '../../molecule/Button/Button';
+import ButtonItem from '../../molecule/Button/ButtonItem';
 import SearchIcon from '@material-ui/icons/Search';
 import SearchInputField from '../../atom/InputFields/SearchInputField';
 import './NavBar.css';

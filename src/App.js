@@ -17,7 +17,7 @@ const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 function App() {
 
   const {bookList, setBookList, libraryBooks, setLibraryBooks, categories,  setCategories} = useBooks();
-  const {searchTerm, setSearchTerm, searchResult, setSearchResult} = useSearch(bookList);
+  const {searchTerm, setSearchTerm, searchResult, setSearchResult} = useSearch({bookList: bookList, initialValue: ""});
 
   const value = {
     bookList,setBookList,

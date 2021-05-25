@@ -1,18 +1,18 @@
 import React from 'react';
-import CardGrid from './CardGrid'
+import CardGrid from './CardGrid';
 
 export default {
     title: "Molecule/CardGrid",
     component: CardGrid,
-}
+};
 
-const Template = args => (<CardGrid {...args} />)
+const Template = args => (<CardGrid {...args} />);
 
 const test = () => {
-    return false
-}
+    return Math.random() < 0.5;
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
     bookList: [
         {
@@ -83,4 +83,4 @@ Default.args = {
         },
     ],
     isInLibrary: test
-}
+};
